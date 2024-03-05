@@ -16,6 +16,9 @@ public:
     void Update();
     void Render();
 
+    int getIXPos() const;
+    int getIYPos() const;
+
 protected:
     std::string s_name;
 

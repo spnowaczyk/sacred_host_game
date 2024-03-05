@@ -27,3 +27,11 @@ void GameObject::Render() {
     SDL_RenderCopy(Game::sdlRen_renderer, sdlTex_objTexture, &sdlRect_srcRect, &sdlRect_dstRect);
 }
 
+int GameObject::getIXPos() const {
+    return i_xPos;
+}
+
+int GameObject::getIYPos() const {
+    return i_yPos;
+}
+

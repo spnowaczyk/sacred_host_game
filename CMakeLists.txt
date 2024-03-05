@@ -12,6 +12,14 @@ set(SDL2_IMAGE_PATH "C:/Dev/newSDL2filesforTM/SDL2_image-2.8.2/x86_64-w64-mingw3
 find_package(SDL2_image REQUIRED)
 include_directories(${SDL2_IMAGE_INCLUDE_DIRS})
 
+set(SDL2_TTF_PATH "C:/Dev/newSDL2filesforTM/SDL2_ttf-2.22.0/x86_64-w64-mingw32")
+find_package(SDL2_ttf REQUIRED)
+include_directories(${SDL2_TTF_INCLUDE_DIR})
+
+set(SDL2_MIXER_PATH "C:/Dev/newSDL2filesforTM/SDL2_mixer-2.8.0/x86_64-w64-mingw32")
+find_package(SDL2_mixer REQUIRED)
+include_directories(${SDL2_MIXER_INCLUDE_DIR})
+
 add_executable(sacred_host main.cpp
         Game.cpp
         Game.h
@@ -22,6 +30,8 @@ add_executable(sacred_host main.cpp
         Map.cpp
         Map.h
         CharacterGO.cpp
-        CharacterGO.h)
+        CharacterGO.h
+        TextBox.cpp
+        TextBox.h)
 
-target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARIES} ${SDL2_TTF_LIBRARY} ${SDL2_MIXER_LIBRARY})

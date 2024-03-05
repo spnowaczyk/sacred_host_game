@@ -6,12 +6,15 @@
 #define TEMPLES_MESSENGER_GAME_H
 
 #include "SDL.h"
+#include "SDL_ttf.h"
+#include "SDL_mixer.h"
 #include <stdio.h>
 #include <iostream>
 #include "TextureManager.h"
 #include "GameObject.h"
 #include "CharacterGO.h"
 #include "Map.h"
+#include "TextBox.h"
 
 
 class Game {
