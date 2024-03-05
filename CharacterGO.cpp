@@ -4,8 +4,8 @@
 
 #include "CharacterGO.h"
 
-CharacterGO::CharacterGO(const char *textureSheet, int width, int height, int xPos, int yPos)
-    : GameObject(textureSheet, width, height, xPos, yPos) {
+CharacterGO::CharacterGO(std::string name, const char *textureSheet, int width, int height, int xPos, int yPos)
+    : GameObject(name, textureSheet, width, height, xPos, yPos) {
     i_desYPos = 3;
     i_desXPos = 3;
 }

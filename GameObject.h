@@ -6,16 +6,18 @@
 #define SACRED_HOST_GAMEOBJECT_H
 
 #include "SDL.h"
+#include "string"
 
 class GameObject {
 public:
-    GameObject(const char* textureSheet, int width = 64, int height = 64, int xPos = 0, int yPos = 0);
+    GameObject(std::string name, const char* textureSheet, int width = 64, int height = 64, int xPos = 0, int yPos = 0);
     ~GameObject();
 
     void Update();
     void Render();
 
 protected:
+    std::string s_name;
 
     int i_xPos;
     int i_yPos;

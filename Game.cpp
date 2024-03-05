@@ -40,7 +40,7 @@ void Game::Init(const char *title, int xpos, int ypos, int width, int height, bo
     }else{
         b_running = false;
     }
-    go_player = new CharacterGO("../assets/Seth2.png");
+    go_player = new CharacterGO("Seth", "../assets/Seth2.png");
     m_map = new Map();
     m_map->RandomMap();
 }

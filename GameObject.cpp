@@ -6,8 +6,10 @@
 #include "TextureManager.h"
 #include "Game.h"
 
-GameObject::GameObject(const char *textureSheet, int width, int height, int xPos, int yPos) {
+GameObject::GameObject(std::string name, const char *textureSheet, int width, int height, int xPos, int yPos) {
     this->sdlTex_objTexture = TextureManager::LoadTexture(textureSheet);
+    s_name = name;
+
     i_xPos = xPos;
     i_yPos = yPos;
 

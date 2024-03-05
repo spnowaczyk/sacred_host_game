@@ -10,7 +10,7 @@
 
 class CharacterGO : public GameObject {
 public:
-    CharacterGO(const char* textureSheet, int width = 64, int height = 64, int xPos = 0, int yPos = 0);
+    CharacterGO(std::string name, const char* textureSheet, int width = 64, int height = 64, int xPos = 0, int yPos = 0);
     void Update();
 
     void Move(int tileX, int tileY);
