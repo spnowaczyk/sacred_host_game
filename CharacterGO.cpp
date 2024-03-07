@@ -22,6 +22,7 @@ void CharacterGO::Move(int tileX, int tileY) {
 void CharacterGO::SelectDestination() {
     if(Game::b_selectButton == true) {
         Move(Game::i_cursorCoordinatesX/64, Game::i_cursorCoordinatesY/64);
+        SFX::Vvf_visualEffects.push_back(new Pinpoint(Game::i_cursorCoordinatesX/64, Game::i_cursorCoordinatesY/64));
     }
 }
 

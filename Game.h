@@ -19,6 +19,8 @@
 #include "Map.h"
 #include "TextBox.h"
 #include "MouseController.h"
+#include "SFX.h"
+#include "Pinpoint.h"
 
 
 class Game {

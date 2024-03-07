@@ -34,6 +34,12 @@ add_executable(sacred_host main.cpp
         TextBox.cpp
         TextBox.h
         MouseController.cpp
-        MouseController.h)
+        MouseController.h
+        SFX.cpp
+        SFX.h
+        VisualEffect.cpp
+        VisualEffect.h
+        Pinpoint.cpp
+        Pinpoint.h)
 
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARIES} ${SDL2_TTF_LIBRARY} ${SDL2_MIXER_LIBRARY})
