@@ -14,6 +14,7 @@ public:
     void Update();
 
     void Move(int tileX, int tileY);
+    void SelectDestination();
     void MakeStep();
 private:
 };

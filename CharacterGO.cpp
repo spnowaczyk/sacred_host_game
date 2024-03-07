@@ -3,6 +3,7 @@
 //
 
 #include "CharacterGO.h"
+#include "Game.h"
 
 CharacterGO::CharacterGO(std::string name, const char *textureSheet, int width, int height, int xPos, int yPos)
     : GameObject(name, textureSheet, width, height, xPos, yPos) {
@@ -11,12 +12,19 @@ CharacterGO::CharacterGO(std::string name, const char *textureSheet, int width, 
 }
 
 void CharacterGO::Update() {
+    SelectDestination();
     MakeStep();
 }
 
 void CharacterGO::Move(int tileX, int tileY) {
     i_desXPos = tileX;
     i_desYPos = tileY;
+}
+
+void CharacterGO::SelectDestination() {
+    if(Game::b_selectButton == true) {
+        Move(Game::i_cursorCoordinatesX/64, Game::i_cursorCoordinatesY/64);
+    }
 }
 
 void CharacterGO::MakeStep() {
@@ -28,3 +36,5 @@ void CharacterGO::MakeStep() {
     i_yPos = sdlRect_dstRect.y / 64;
     i_xPos = sdlRect_dstRect.x / 64;
 }
+
+

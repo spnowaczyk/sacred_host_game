@@ -15,6 +15,7 @@
 #include "CharacterGO.h"
 #include "Map.h"
 #include "TextBox.h"
+#include "MouseController.h"
 
 
 class Game {
@@ -31,6 +32,10 @@ public:
     inline bool in_Running() { return b_running; }
 
     static SDL_Renderer* sdlRen_renderer;
+    static SDL_Event sdlEvent_event;
+
+    static int i_cursorCoordinatesX, i_cursorCoordinatesY;
+    static bool b_selectButton;
 
 private:
     bool b_running;

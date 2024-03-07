@@ -6,10 +6,15 @@
 #include "string"
 
 int i_cnt = 0;
+int Game::i_cursorCoordinatesX, Game::i_cursorCoordinatesY;
+bool Game::b_selectButton;
+
 SDL_Renderer* Game::sdlRen_renderer = nullptr;
+SDL_Event Game::sdlEvent_event;
 CharacterGO* go_player;
 Map* m_map;
 TextBox* textBox_text;
+TextBox* textBox_mouseCoords;
 
 Game::Game() {
 
@@ -59,25 +64,31 @@ void Game::Init(const char *title, int xpos, int ypos, int width, int height, bo
     Mix_Music* mixMusic_music = Mix_LoadMUS("../audio/black_pants.wav");
     //Mix_Chunk* mixChunk_sound = Mix_LoadWAV()
     Mix_PlayMusic(mixMusic_music, -1);
+    textBox_mouseCoords = new TextBox(300, 300, 100, 255, 255, 40, "X: Y:");
 
 }
 
 void Game::HandleEvents() {
-    SDL_Event event;
-    SDL_PollEvent(&event);
-    switch (event.type) {
+    SDL_PollEvent(&sdlEvent_event);
+    switch (sdlEvent_event.type) {
         case SDL_QUIT:
             b_running = false;
             break;
         default:
             break;
     }
+    MouseController::MousePositionQuery(&i_cursorCoordinatesX, &i_cursorCoordinatesY);
+    MouseController::MouseClickQuery(&b_selectButton);
 }
 
 void Game::Update() {
     i_cnt++;
     go_player->Update();
+
     textBox_text->WriteMessage(( "X: " + std::to_string(go_player->getIXPos()) + " / Y: " + std::to_string(go_player->getIYPos())).c_str());
+    textBox_mouseCoords->WriteMessage(("X: " + std::to_string(Game::i_cursorCoordinatesX/64) + " / Y: "
+        + std::to_string(Game::i_cursorCoordinatesY/64) + " C: " + std::to_string(b_selectButton)).c_str());
+
 }
 
 void Game::Render() {
@@ -85,6 +96,7 @@ void Game::Render() {
     m_map->RenderMap();
     go_player->Render();
     textBox_text->Render();
+    textBox_mouseCoords->Render();
     SDL_RenderPresent(sdlRen_renderer);
 }
 
