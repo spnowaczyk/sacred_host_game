@@ -10,7 +10,7 @@
 
 class GameObject {
 public:
-    GameObject(std::string name, const char* textureSheet, int width = 64, int height = 64, int xPos = 0, int yPos = 0);
+    GameObject(std::string name, const char* textureSheet, int width = 64, int height = 64, int xTile = 0, int yTile = 0);
     ~GameObject();
 
     void Update();
@@ -25,8 +25,11 @@ protected:
     int i_xPos;
     int i_yPos;
 
-    int i_desXPos;
-    int i_desYPos;
+    int i_desXTile;
+    int i_desYTile;
+
+    int i_enqueuedXTile;
+    int i_enqueuedYTile;
 
     int i_Width;
     int i_Height;

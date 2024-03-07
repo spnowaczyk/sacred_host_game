@@ -56,7 +56,7 @@ void Game::Init(const char *title, int xpos, int ypos, int width, int height, bo
     }else{
         b_running = false;
     }
-    go_player = new CharacterGO("Seth", "../assets/Seth2.png");
+    go_player = new CharacterGO("Seth", "../assets/Seth2.png", 64, 64, 2, 2);
     m_map = new Map();
     m_map->RandomMap();
     textBox_text = new TextBox(500, 500, 255, 255, 255, 30, "Hi! I love You!");

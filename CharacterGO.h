@@ -10,12 +10,12 @@
 
 class CharacterGO : public GameObject {
 public:
-    CharacterGO(std::string name, const char* textureSheet, int width = 64, int height = 64, int xPos = 0, int yPos = 0);
+    CharacterGO(std::string name, const char* textureSheet, int width = 64, int height = 64, int xTile = 0, int yTile = 0);
     void Update();
 
     void Move(int tileX, int tileY);
     void SelectDestination();
-    void MakeStep();
+    void MakeStep(int speed);
 private:
 };
 

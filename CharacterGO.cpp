@@ -5,20 +5,18 @@
 #include "CharacterGO.h"
 #include "Game.h"
 
-CharacterGO::CharacterGO(std::string name, const char *textureSheet, int width, int height, int xPos, int yPos)
-    : GameObject(name, textureSheet, width, height, xPos, yPos) {
-    i_desYPos = 3;
-    i_desXPos = 3;
+CharacterGO::CharacterGO(std::string name, const char *textureSheet, int width, int height, int xTile, int yTile)
+    : GameObject(name, textureSheet, width, height, xTile, yTile) {
 }
 
 void CharacterGO::Update() {
     SelectDestination();
-    MakeStep();
+    MakeStep(4);
 }
 
 void CharacterGO::Move(int tileX, int tileY) {
-    i_desXPos = tileX;
-    i_desYPos = tileY;
+    i_enqueuedXTile = tileX;
+    i_enqueuedYTile = tileY;
 }
 
 void CharacterGO::SelectDestination() {
@@ -27,14 +25,19 @@ void CharacterGO::SelectDestination() {
     }
 }
 
-void CharacterGO::MakeStep() {
-    if(sdlRect_dstRect.x < i_desXPos*64) sdlRect_dstRect.x++;
-    else if(sdlRect_dstRect.x > i_desXPos*64) sdlRect_dstRect.x--;
-    else if(sdlRect_dstRect.y < i_desYPos*64) sdlRect_dstRect.y++;
-    else if(sdlRect_dstRect.y > i_desYPos*64) sdlRect_dstRect.y--;
+void CharacterGO::MakeStep(int speed) {
+    if(sdlRect_dstRect.x < i_desXTile * 64) sdlRect_dstRect.x += speed;
+    else if(sdlRect_dstRect.x > i_desXTile * 64) sdlRect_dstRect.x -= speed;
+    else if(sdlRect_dstRect.y < i_desYTile*64) sdlRect_dstRect.y += speed;
+    else if(sdlRect_dstRect.y > i_desYTile*64) sdlRect_dstRect.y -= speed;
 
     i_yPos = sdlRect_dstRect.y / 64;
     i_xPos = sdlRect_dstRect.x / 64;
+
+    if(sdlRect_dstRect.y % 64 == 0 && sdlRect_dstRect.x % 64 == 0) {
+        i_desXTile = i_enqueuedXTile;
+        i_desYTile = i_enqueuedYTile;
+    }
 }
 
 
