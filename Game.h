@@ -8,8 +8,11 @@
 #include "SDL.h"
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
+
 #include <stdio.h>
 #include <iostream>
+#include <vector>
+
 #include "TextureManager.h"
 #include "GameObject.h"
 #include "CharacterGO.h"

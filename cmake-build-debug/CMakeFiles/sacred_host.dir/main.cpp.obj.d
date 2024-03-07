@@ -312,15 +312,15 @@ CMakeFiles/sacred_host.dir/main.cpp.obj: \
  C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/include/SDL2/SDL_audio.h \
  C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/include/SDL2/SDL_endian.h \
  C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/include/SDL2/SDL_version.h \
- C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\TextureManager.h \
- C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2_image-2.8.2/x86_64-w64-mingw32/include/SDL2/SDL_image.h \
- C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\GameObject.h \
- C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\CharacterGO.h \
- C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\Map.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.1.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/vector \
  C:/Program\ Files/JetBrains/CLion\ 2023.1.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_uninitialized.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.1.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_vector.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.1.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_bvector.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.1.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/vector.tcc \
+ C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\TextureManager.h \
+ C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2_image-2.8.2/x86_64-w64-mingw32/include/SDL2/SDL_image.h \
+ C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\GameObject.h \
+ C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\CharacterGO.h \
+ C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\Map.h \
  C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\TextBox.h \
  C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\MouseController.h
