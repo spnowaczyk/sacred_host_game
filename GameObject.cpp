@@ -23,6 +23,10 @@ GameObject::GameObject(std::string name, const char *textureSheet, int width, in
     sdlRect_srcRect.w = sdlRect_dstRect.w = height;
 }
 
+GameObject::~GameObject() {
+
+}
+
 void GameObject::Update() {
 }
 
@@ -31,10 +35,10 @@ void GameObject::Render() {
 }
 
 int GameObject::getIXPos() const {
-    return i_xPos;
+    return i_xTile;
 }
 
 int GameObject::getIYPos() const {
-    return i_yPos;
+    return i_yTile;
 }
 

@@ -11,17 +11,21 @@
 
 class TextBox {
 public:
-    TextBox(int posX, int posY, int reds, int greens, int blues, int size, const char *message = "",  int aplha = 255);
+    TextBox(int posX, int posY, int reds, int greens, int blues, int size, const char *message,  int alpha);
     void WriteMessage(const char* message);
     void Render();
+    void Update();
+    bool IsMarkedToDeath();
+    void MarkToDeath();
 
-    static std::vector<TextBox*> textBoxV_textBoxes;
 private:
     SDL_Surface* sdlSurface_surface;
     SDL_Texture* sdlTexture_texture;
     TTF_Font* ttfFont_font;
     SDL_Color sdlColor_color;
     SDL_Rect sdlRect_rect;
+
+    bool b_markedToDeath;
 };
 
 

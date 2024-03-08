@@ -7,6 +7,8 @@
 
 #include "GameObject.h"
 
+class TextBox;
+
 
 class CharacterGO : public GameObject {
 public:
@@ -16,7 +18,9 @@ public:
     void Move(int tileX, int tileY);
     void SelectDestination();
     void MakeStep(int speed);
+
 private:
+    TextBox* textBox_position;
 };
 
 

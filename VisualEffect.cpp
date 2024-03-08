@@ -5,7 +5,7 @@
 #include "VisualEffect.h"
 
 VisualEffect::VisualEffect() {
-
+    b_markedToDeath = false;
 }
 
 VisualEffect::~VisualEffect() {
@@ -18,4 +18,8 @@ void VisualEffect::Update() {
 
 void VisualEffect::Render() {
 
+}
+
+bool VisualEffect::IsMarkedToDeath() {
+    return b_markedToDeath;
 }

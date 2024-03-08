@@ -21,6 +21,7 @@
 #include "MouseController.h"
 #include "SFX.h"
 #include "Pinpoint.h"
+#include "TextManager.h"
 
 
 class Game {

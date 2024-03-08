@@ -11,6 +11,10 @@ class VisualEffect {
 public:
     virtual void Update();
     virtual void Render();
+    bool IsMarkedToDeath();
+
+    VisualEffect();
+    ~VisualEffect();
 
 protected:
     int i_tileX;
@@ -19,12 +23,11 @@ protected:
     int i_tilesHeight;
     int i_cnt;
 
+    bool b_markedToDeath;
+
     SDL_Texture* sdlTex_texture;
     SDL_Rect sdlRect_srcRect;
     SDL_Rect sdlRect_dstRect;
-
-    VisualEffect();
-    ~VisualEffect();
 };
 
 

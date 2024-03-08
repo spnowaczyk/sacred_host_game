@@ -22,8 +22,8 @@ public:
 protected:
     std::string s_name;
 
-    int i_xPos;
-    int i_yPos;
+    int i_xTile;
+    int i_yTile;
 
     int i_desXTile;
     int i_desYTile;

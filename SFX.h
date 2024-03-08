@@ -12,6 +12,8 @@ class SFX {
 public:
     static void DrawPinpoint();
     static std::vector<VisualEffect*> Vvf_visualEffects;
+    static void Update();
+    static void Render();
 };
 
 
