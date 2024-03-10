@@ -11,14 +11,15 @@
 
 class TextBox {
 public:
-    TextBox(int posX, int posY, int reds, int greens, int blues, int size, const char *message,  int alpha);
+    TextBox(int posX, int posY, int reds, int greens, int blues, int size, const char *message, int alpha);
+    virtual ~TextBox();
     void WriteMessage(const char* message);
-    void Render();
-    void Update();
+    virtual void Render();
+    virtual void Update();
     bool IsMarkedToDeath();
     void MarkToDeath();
 
-private:
+protected:
     SDL_Surface* sdlSurface_surface;
     SDL_Texture* sdlTexture_texture;
     TTF_Font* ttfFont_font;

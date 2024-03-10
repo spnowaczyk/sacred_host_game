@@ -10,17 +10,23 @@
 
 class GameObject {
 public:
-    GameObject(std::string name, const char* textureSheet, int width = 64, int height = 64, int xTile = 0, int yTile = 0);
-    ~GameObject();
+    GameObject(std::string name, const char* textureSheet, int width = 64, int height = 64, int xTile = 0, int yTile = 0, std::string message = "");
+    virtual ~GameObject();
 
-    void Update();
+    virtual void Update();
     void Render();
 
-    int getIXPos() const;
-    int getIYPos() const;
+    virtual void Interact();
+
+    bool IsMarkedToDeath();
+    void MarkToDeath();
+
+    int getIXTile() const;
+    int getIYTile() const;
 
 protected:
     std::string s_name;
+    std::string s_message;
 
     int i_xTile;
     int i_yTile;
@@ -33,6 +39,8 @@ protected:
 
     int i_Width;
     int i_Height;
+
+    bool b_markedToDeath;
 
     SDL_Texture* sdlTex_objTexture;
     SDL_Rect sdlRect_srcRect, sdlRect_dstRect;

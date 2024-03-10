@@ -42,6 +42,11 @@ add_executable(sacred_host main.cpp
         Pinpoint.cpp
         Pinpoint.h
         TextManager.cpp
-        TextManager.h)
+        TextManager.h
+        ObjectManager.cpp
+        ObjectManager.h
+        FadingTextBox.cpp
+        FadingTextBox.h
+)
 
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARIES} ${SDL2_TTF_LIBRARY} ${SDL2_MIXER_LIBRARY})

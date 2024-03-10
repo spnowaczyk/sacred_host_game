@@ -11,7 +11,7 @@
 class Pinpoint : public VisualEffect{
 public:
     Pinpoint(int tileX, int tileY);
-    ~Pinpoint();
+    ~Pinpoint() override;
 
     void Update() override;
     void Render() override;

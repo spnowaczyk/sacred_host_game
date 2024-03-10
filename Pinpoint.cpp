@@ -22,10 +22,12 @@ Pinpoint::Pinpoint(int tileX, int tileY) : VisualEffect() {
 
     sdlRect_dstRect.x = i_tileX*64;
     sdlRect_dstRect.y = i_tileY*64;
+
+    Game::i_pinPoints++;
 }
 
 Pinpoint::~Pinpoint() {
-
+    Game::i_pinPoints--;
 }
 
 void Pinpoint::Update() {
@@ -38,3 +40,4 @@ void Pinpoint::Update() {
 void Pinpoint::Render() {
     SDL_RenderCopy(Game::sdlRen_renderer, sdlTex_texture, &sdlRect_srcRect, &sdlRect_dstRect);
 }
+

@@ -3,13 +3,15 @@
 //
 
 #include "VisualEffect.h"
+#include "Game.h"
 
 VisualEffect::VisualEffect() {
     b_markedToDeath = false;
+    Game::i_visualEffects++;
 }
 
 VisualEffect::~VisualEffect() {
-
+    Game::i_visualEffects--;
 }
 
 void VisualEffect::Update() {
@@ -23,3 +25,4 @@ void VisualEffect::Render() {
 bool VisualEffect::IsMarkedToDeath() {
     return b_markedToDeath;
 }
+

@@ -16,9 +16,10 @@ void MouseController::MousePositionQuery(int *mouseX, int *mouseY) {
 void MouseController::MouseClickQuery(bool *mouseClickFlag) {
     if(Game::sdlEvent_event.type == SDL_MOUSEBUTTONDOWN) {
         switch (Game::sdlEvent_event.button.button) {
-            case SDL_BUTTON_LEFT:
+            case SDL_BUTTON_LEFT: {
                 *mouseClickFlag = true;
                 break;
+            }
             default:
                 break;
         }

@@ -5,9 +5,10 @@
 #include "SFX.h"
 #include "Game.h"
 
+std::vector<VisualEffect*> SFX::Vvf_visualEffects;
 
 void SFX::DrawPinpoint() {
-
+    SFX::Vvf_visualEffects.push_back(new Pinpoint(Game::i_cursorCoordinatesX/64, Game::i_cursorCoordinatesY/64));
 }
 
 void SFX::Update() {

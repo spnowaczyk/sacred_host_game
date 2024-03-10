@@ -13,10 +13,14 @@ SDL_Renderer* Game::sdlRen_renderer = nullptr;
 SDL_Event Game::sdlEvent_event;
 CharacterGO* go_player;
 Map* m_map;
-std::vector<TextBox*> TextManager::textBoxV_textBoxes;
-std::vector<VisualEffect*> SFX::Vvf_visualEffects;
+
 TextBox* textBox_mouseCoords;
 TextBox* textBox_debug;
+
+int Game::i_textBoxes;
+int Game::i_pinPoints;
+int Game::i_visualEffects;
+int Game::i_gameObjects;
 
 Game::Game() {
 
@@ -58,15 +62,22 @@ void Game::Init(const char *title, int xpos, int ypos, int width, int height, bo
     }else{
         b_running = false;
     }
-    go_player = new CharacterGO("Seth", "../assets/Seth2.png", 64, 64, 2, 2);
+
+    Game::i_gameObjects = 0;
+    Game::i_pinPoints = 0;
+    Game::i_visualEffects = 0;
+    Game::i_textBoxes = 0;
+
+    ObjectManager::CreateCharacter("Seth", "../assets/Seth2.png", 64, 64, 2, 2);
+    ObjectManager::CreateObject("Chest", "../assets/chest.png", 64, 64, 7, 7, "looks like an old, rusty chest");
     m_map = new Map();
     m_map->RandomMap();
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
     Mix_Music* mixMusic_music = Mix_LoadMUS("../audio/enjoy_your_first_day_cadet.wav");
     //Mix_Chunk* mixChunk_sound = Mix_LoadWAV()
     Mix_PlayMusic(mixMusic_music, -1);
-    textBox_mouseCoords = TextManager::CreateTextBox(1000, 700);
-    textBox_debug = TextManager::CreateTextBox(100, 100);
+    textBox_mouseCoords = TextManager::CreateTextBox(1000, 700, "mouse coords");
+    textBox_debug = TextManager::CreateTextBox(100, 100, "debug");
 }
 
 void Game::HandleEvents() {
@@ -84,22 +95,24 @@ void Game::HandleEvents() {
 
 void Game::Update() {
     i_cnt++;
-    go_player->Update();
     SFX::Update();
+    ObjectManager::Update();
     TextManager::Update();
 
-    textBox_mouseCoords->WriteMessage(("X: " + std::to_string(Game::i_cursorCoordinatesX/64) + " / Y: "
+    TextManager::WriteMessage(textBox_mouseCoords, ("X: " + std::to_string(Game::i_cursorCoordinatesX/64) + " / Y: "
         + std::to_string(Game::i_cursorCoordinatesY/64) + " C: " + std::to_string(b_selectButton)).c_str());
-    textBox_debug->WriteMessage(("SFX's cnt: " + std::to_string(SFX::Vvf_visualEffects.size())).c_str());
-
+    TextManager::WriteMessage(textBox_debug, "pinpoints: " + std::to_string(i_pinPoints) + "  "
+                                + "visualeffects: " + std::to_string(i_visualEffects) + "  "
+                                + "gameobjects: " + std::to_string(i_gameObjects) + "  "
+                                + "textboxes: " + std::to_string(i_textBoxes));
 }
 
 void Game::Render() {
     SDL_RenderClear(sdlRen_renderer);
 
     m_map->RenderMap();
-    go_player->Render();
     SFX::Render();
+    ObjectManager::Render();
     TextManager::Render();
 
     SDL_RenderPresent(sdlRen_renderer);

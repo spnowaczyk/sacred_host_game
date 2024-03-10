@@ -4,9 +4,18 @@
 
 #include "TextManager.h"
 
+std::vector<TextBox*> TextManager::textBoxV_textBoxes;
+
 TextBox* TextManager::CreateTextBox(int posX, int posY, const char *message, int size, int reds, int greens, int blues,
                                     int alpha) {
     TextBox* textBox_box = new TextBox(posX, posY, reds, greens, blues, size, message, alpha);
+    TextManager::textBoxV_textBoxes.push_back(textBox_box);
+    return textBox_box;
+}
+
+TextBox* TextManager::CreateTextBox(int posX, int posY, std::string message, int size, int reds, int greens, int blues,
+                                    int alpha) {
+    TextBox* textBox_box = new TextBox(posX, posY, reds, greens, blues, size, message.c_str(), alpha);
     TextManager::textBoxV_textBoxes.push_back(textBox_box);
     return textBox_box;
 }
@@ -38,4 +47,18 @@ void TextManager::WriteMessage(TextBox* textBox_box, const char *message) {
 
 void TextManager::WriteMessage(TextBox* textBox_box, std::string message) {
     if(textBox_box != nullptr) textBox_box->WriteMessage(message.c_str());
+}
+
+TextBox* TextManager::CreateFadingTextBox(int posX, int posY, const char *message, int size, int reds, int greens, int blues,
+                                 int alpha) {
+    TextBox* textBox_box = new FadingTextBox(posX, posY, reds, greens, blues, size, message, alpha);
+    TextManager::textBoxV_textBoxes.push_back(textBox_box);
+    return textBox_box;
+}
+
+TextBox* TextManager::CreateFadingTextBox(int posX, int posY, std::string message, int size, int reds, int greens, int blues,
+                                          int alpha) {
+    TextBox* textBox_box = new FadingTextBox(posX, posY, reds, greens, blues, size, message.c_str(), alpha);
+    TextManager::textBoxV_textBoxes.push_back(textBox_box);
+    return textBox_box;
 }

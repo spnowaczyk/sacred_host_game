@@ -19,6 +19,12 @@ TextBox::TextBox(int posX, int posY, int reds, int greens, int blues, int size, 
     sdlRect_rect.x = posX;
     sdlRect_rect.y = posY;
     SDL_FreeSurface(sdlSurface_surface);
+    Game::i_textBoxes++;
+    std::cout << "created textbox with message " + std::string(message) << std::endl;
+}
+
+TextBox::~TextBox() {
+    Game::i_textBoxes--;
 }
 
 void TextBox::WriteMessage(const char *message) {

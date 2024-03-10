@@ -16,8 +16,10 @@ public:
     ~Map();
 
     void RandomMap();
-    void LoadMap(int tileArray [12][20]);
+    void LoadMap(int tileTexturesArray [12][20]);
     void RenderMap();
+
+    GameObject* getOccupyingObject(int xTile, int yTile);
 
 private:
     SDL_Rect sdlRect_src, sdlRect_dst;
@@ -32,7 +34,8 @@ private:
         &sdlTexture_grass
     };
 
-    int iA_tileMap[12][20];
+    int iA_tileTexturesMap[12][20];
+    GameObject* goV_occupyingObjects[12][20];
 
 };
 

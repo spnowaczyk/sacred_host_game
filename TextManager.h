@@ -6,6 +6,7 @@
 #define CLION_DEBUG_LOG_TXT_TEXTMANAGER_H
 
 #include "TextBox.h"
+#include "FadingTextBox.h"
 #include <string>
 
 
@@ -14,6 +15,9 @@ public:
     static std::vector<TextBox*> textBoxV_textBoxes;
 
     static TextBox* CreateTextBox(int posX, int posY, const char *message = "", int size = 20, int reds = 255, int greens = 255, int blues = 255,  int alpha = 255);
+    static TextBox* CreateTextBox(int posX, int posY, std::string = "", int size = 20, int reds = 255, int greens = 255, int blues = 255,  int alpha = 255);
+    static TextBox* CreateFadingTextBox(int posX, int posY, const char *message = "", int size = 20, int reds = 255, int greens = 255, int blues = 255,  int alpha = 255);
+    static TextBox* CreateFadingTextBox(int posX, int posY, std::string = "", int size = 20, int reds = 255, int greens = 255, int blues = 255,  int alpha = 255);
     static void DestroyTextBox(TextBox*);
     static void WriteMessage(TextBox* textBox_box, const char* message);
     static void WriteMessage(TextBox* textBox_box, std::string message);

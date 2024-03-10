@@ -14,7 +14,7 @@ public:
     bool IsMarkedToDeath();
 
     VisualEffect();
-    ~VisualEffect();
+    virtual ~VisualEffect();
 
 protected:
     int i_tileX;

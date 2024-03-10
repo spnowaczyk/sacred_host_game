@@ -22,6 +22,7 @@
 #include "SFX.h"
 #include "Pinpoint.h"
 #include "TextManager.h"
+#include "ObjectManager.h"
 
 
 class Game {
@@ -39,6 +40,8 @@ public:
 
     static SDL_Renderer* sdlRen_renderer;
     static SDL_Event sdlEvent_event;
+
+    static int i_textBoxes, i_pinPoints, i_visualEffects, i_gameObjects;
 
     static int i_cursorCoordinatesX, i_cursorCoordinatesY;
     static bool b_selectButton;
