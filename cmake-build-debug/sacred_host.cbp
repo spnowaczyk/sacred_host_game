@@ -96,6 +96,12 @@
 		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/CharacterGO.h">
 			<Option target="sacred_host"/>
 		</Unit>
+		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/FadingTextBox.cpp">
+			<Option target="sacred_host"/>
+		</Unit>
+		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/FadingTextBox.h">
+			<Option target="sacred_host"/>
+		</Unit>
 		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/Game.cpp">
 			<Option target="sacred_host"/>
 		</Unit>
@@ -120,16 +126,46 @@
 		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/MouseController.h">
 			<Option target="sacred_host"/>
 		</Unit>
+		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/ObjectManager.cpp">
+			<Option target="sacred_host"/>
+		</Unit>
+		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/ObjectManager.h">
+			<Option target="sacred_host"/>
+		</Unit>
+		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/Pinpoint.cpp">
+			<Option target="sacred_host"/>
+		</Unit>
+		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/Pinpoint.h">
+			<Option target="sacred_host"/>
+		</Unit>
+		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SFX.cpp">
+			<Option target="sacred_host"/>
+		</Unit>
+		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SFX.h">
+			<Option target="sacred_host"/>
+		</Unit>
 		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/TextBox.cpp">
 			<Option target="sacred_host"/>
 		</Unit>
 		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/TextBox.h">
 			<Option target="sacred_host"/>
 		</Unit>
+		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/TextManager.cpp">
+			<Option target="sacred_host"/>
+		</Unit>
+		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/TextManager.h">
+			<Option target="sacred_host"/>
+		</Unit>
 		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/TextureManager.cpp">
 			<Option target="sacred_host"/>
 		</Unit>
 		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/TextureManager.h">
+			<Option target="sacred_host"/>
+		</Unit>
+		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/VisualEffect.cpp">
+			<Option target="sacred_host"/>
+		</Unit>
+		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/VisualEffect.h">
 			<Option target="sacred_host"/>
 		</Unit>
 		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/main.cpp">

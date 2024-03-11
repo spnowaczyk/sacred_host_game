@@ -152,6 +152,30 @@ CharacterGO.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/CharacterGO.cpp.s
 .PHONY : CharacterGO.cpp.s
 
+FadingTextBox.obj: FadingTextBox.cpp.obj
+.PHONY : FadingTextBox.obj
+
+# target to build an object file
+FadingTextBox.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/FadingTextBox.cpp.obj
+.PHONY : FadingTextBox.cpp.obj
+
+FadingTextBox.i: FadingTextBox.cpp.i
+.PHONY : FadingTextBox.i
+
+# target to preprocess a source file
+FadingTextBox.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/FadingTextBox.cpp.i
+.PHONY : FadingTextBox.cpp.i
+
+FadingTextBox.s: FadingTextBox.cpp.s
+.PHONY : FadingTextBox.s
+
+# target to generate assembly for a file
+FadingTextBox.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/FadingTextBox.cpp.s
+.PHONY : FadingTextBox.cpp.s
+
 Game.obj: Game.cpp.obj
 .PHONY : Game.obj
 
@@ -248,6 +272,78 @@ MouseController.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/MouseController.cpp.s
 .PHONY : MouseController.cpp.s
 
+ObjectManager.obj: ObjectManager.cpp.obj
+.PHONY : ObjectManager.obj
+
+# target to build an object file
+ObjectManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/ObjectManager.cpp.obj
+.PHONY : ObjectManager.cpp.obj
+
+ObjectManager.i: ObjectManager.cpp.i
+.PHONY : ObjectManager.i
+
+# target to preprocess a source file
+ObjectManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/ObjectManager.cpp.i
+.PHONY : ObjectManager.cpp.i
+
+ObjectManager.s: ObjectManager.cpp.s
+.PHONY : ObjectManager.s
+
+# target to generate assembly for a file
+ObjectManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/ObjectManager.cpp.s
+.PHONY : ObjectManager.cpp.s
+
+Pinpoint.obj: Pinpoint.cpp.obj
+.PHONY : Pinpoint.obj
+
+# target to build an object file
+Pinpoint.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/Pinpoint.cpp.obj
+.PHONY : Pinpoint.cpp.obj
+
+Pinpoint.i: Pinpoint.cpp.i
+.PHONY : Pinpoint.i
+
+# target to preprocess a source file
+Pinpoint.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/Pinpoint.cpp.i
+.PHONY : Pinpoint.cpp.i
+
+Pinpoint.s: Pinpoint.cpp.s
+.PHONY : Pinpoint.s
+
+# target to generate assembly for a file
+Pinpoint.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/Pinpoint.cpp.s
+.PHONY : Pinpoint.cpp.s
+
+SFX.obj: SFX.cpp.obj
+.PHONY : SFX.obj
+
+# target to build an object file
+SFX.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/SFX.cpp.obj
+.PHONY : SFX.cpp.obj
+
+SFX.i: SFX.cpp.i
+.PHONY : SFX.i
+
+# target to preprocess a source file
+SFX.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/SFX.cpp.i
+.PHONY : SFX.cpp.i
+
+SFX.s: SFX.cpp.s
+.PHONY : SFX.s
+
+# target to generate assembly for a file
+SFX.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/SFX.cpp.s
+.PHONY : SFX.cpp.s
+
 TextBox.obj: TextBox.cpp.obj
 .PHONY : TextBox.obj
 
@@ -272,6 +368,30 @@ TextBox.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/TextBox.cpp.s
 .PHONY : TextBox.cpp.s
 
+TextManager.obj: TextManager.cpp.obj
+.PHONY : TextManager.obj
+
+# target to build an object file
+TextManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/TextManager.cpp.obj
+.PHONY : TextManager.cpp.obj
+
+TextManager.i: TextManager.cpp.i
+.PHONY : TextManager.i
+
+# target to preprocess a source file
+TextManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/TextManager.cpp.i
+.PHONY : TextManager.cpp.i
+
+TextManager.s: TextManager.cpp.s
+.PHONY : TextManager.s
+
+# target to generate assembly for a file
+TextManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/TextManager.cpp.s
+.PHONY : TextManager.cpp.s
+
 TextureManager.obj: TextureManager.cpp.obj
 .PHONY : TextureManager.obj
 
@@ -295,6 +415,30 @@ TextureManager.s: TextureManager.cpp.s
 TextureManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/TextureManager.cpp.s
 .PHONY : TextureManager.cpp.s
+
+VisualEffect.obj: VisualEffect.cpp.obj
+.PHONY : VisualEffect.obj
+
+# target to build an object file
+VisualEffect.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/VisualEffect.cpp.obj
+.PHONY : VisualEffect.cpp.obj
+
+VisualEffect.i: VisualEffect.cpp.i
+.PHONY : VisualEffect.i
+
+# target to preprocess a source file
+VisualEffect.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/VisualEffect.cpp.i
+.PHONY : VisualEffect.cpp.i
+
+VisualEffect.s: VisualEffect.cpp.s
+.PHONY : VisualEffect.s
+
+# target to generate assembly for a file
+VisualEffect.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/VisualEffect.cpp.s
+.PHONY : VisualEffect.cpp.s
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
@@ -332,6 +476,9 @@ help:
 	@echo ... CharacterGO.obj
 	@echo ... CharacterGO.i
 	@echo ... CharacterGO.s
+	@echo ... FadingTextBox.obj
+	@echo ... FadingTextBox.i
+	@echo ... FadingTextBox.s
 	@echo ... Game.obj
 	@echo ... Game.i
 	@echo ... Game.s
@@ -344,12 +491,27 @@ help:
 	@echo ... MouseController.obj
 	@echo ... MouseController.i
 	@echo ... MouseController.s
+	@echo ... ObjectManager.obj
+	@echo ... ObjectManager.i
+	@echo ... ObjectManager.s
+	@echo ... Pinpoint.obj
+	@echo ... Pinpoint.i
+	@echo ... Pinpoint.s
+	@echo ... SFX.obj
+	@echo ... SFX.i
+	@echo ... SFX.s
 	@echo ... TextBox.obj
 	@echo ... TextBox.i
 	@echo ... TextBox.s
+	@echo ... TextManager.obj
+	@echo ... TextManager.i
+	@echo ... TextManager.s
 	@echo ... TextureManager.obj
 	@echo ... TextureManager.i
 	@echo ... TextureManager.s
+	@echo ... VisualEffect.obj
+	@echo ... VisualEffect.i
+	@echo ... VisualEffect.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
