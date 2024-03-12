@@ -46,5 +46,5 @@ void Map::RandomMap() {
 }
 
 GameObject *Map::getOccupyingObject(int xTile, int yTile) {
-    return goV_occupyingObjects[xTile][yTile];
+    return goA_occupyingObjects[xTile][yTile];
 }

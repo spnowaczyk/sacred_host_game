@@ -35,7 +35,7 @@ private:
     };
 
     int iA_tileTexturesMap[12][20];
-    GameObject* goV_occupyingObjects[12][20];
+    GameObject* goA_occupyingObjects[12][20];
 
 };
 
