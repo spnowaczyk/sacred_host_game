@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/sacred_host.dir/CharacterGO.cpp.obj"
   "CMakeFiles/sacred_host.dir/CharacterGO.cpp.obj.d"
+  "CMakeFiles/sacred_host.dir/CollisionLayer.cpp.obj"
+  "CMakeFiles/sacred_host.dir/CollisionLayer.cpp.obj.d"
   "CMakeFiles/sacred_host.dir/FadingTextBox.cpp.obj"
   "CMakeFiles/sacred_host.dir/FadingTextBox.cpp.obj.d"
   "CMakeFiles/sacred_host.dir/Game.cpp.obj"

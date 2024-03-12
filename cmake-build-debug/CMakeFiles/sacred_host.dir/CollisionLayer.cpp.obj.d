@@ -1,6 +1,6 @@
-CMakeFiles/sacred_host.dir/ObjectManager.cpp.obj: \
- C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\ObjectManager.cpp \
- C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\ObjectManager.h \
+CMakeFiles/sacred_host.dir/CollisionLayer.cpp.obj: \
+ C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\CollisionLayer.cpp \
+ C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\CollisionLayer.h \
  C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\Game.h \
  C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/include/SDL2/SDL.h \
  C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/include/SDL2/SDL_main.h \
@@ -330,4 +330,4 @@ CMakeFiles/sacred_host.dir/ObjectManager.cpp.obj: \
  C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\Pinpoint.h \
  C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\TextManager.h \
  C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\FadingTextBox.h \
- C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\CollisionLayer.h
+ C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\ObjectManager.h

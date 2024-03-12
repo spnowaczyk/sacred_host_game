@@ -47,6 +47,8 @@ add_executable(sacred_host main.cpp
         ObjectManager.h
         FadingTextBox.cpp
         FadingTextBox.h
+        CollisionLayer.cpp
+        CollisionLayer.h
 )
 
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARIES} ${SDL2_TTF_LIBRARY} ${SDL2_MIXER_LIBRARY} -static)

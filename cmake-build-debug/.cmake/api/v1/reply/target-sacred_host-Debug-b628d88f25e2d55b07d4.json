@@ -35,7 +35,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 52,
+				"line" : 54,
 				"parent" : 0
 			},
 			{
@@ -116,7 +116,8 @@
 				19,
 				21,
 				23,
-				25
+				25,
+				27
 			]
 		}
 	],
@@ -206,7 +207,8 @@
 				19,
 				21,
 				23,
-				25
+				25,
+				27
 			]
 		},
 		{
@@ -225,7 +227,8 @@
 				20,
 				22,
 				24,
-				26
+				26,
+				28
 			]
 		}
 	],
@@ -378,6 +381,17 @@
 		{
 			"backtrace" : 1,
 			"path" : "FadingTextBox.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "CollisionLayer.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "CollisionLayer.h",
 			"sourceGroupIndex" : 1
 		}
 	],

@@ -152,6 +152,30 @@ CharacterGO.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/CharacterGO.cpp.s
 .PHONY : CharacterGO.cpp.s
 
+CollisionLayer.obj: CollisionLayer.cpp.obj
+.PHONY : CollisionLayer.obj
+
+# target to build an object file
+CollisionLayer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/CollisionLayer.cpp.obj
+.PHONY : CollisionLayer.cpp.obj
+
+CollisionLayer.i: CollisionLayer.cpp.i
+.PHONY : CollisionLayer.i
+
+# target to preprocess a source file
+CollisionLayer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/CollisionLayer.cpp.i
+.PHONY : CollisionLayer.cpp.i
+
+CollisionLayer.s: CollisionLayer.cpp.s
+.PHONY : CollisionLayer.s
+
+# target to generate assembly for a file
+CollisionLayer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sacred_host.dir\build.make CMakeFiles/sacred_host.dir/CollisionLayer.cpp.s
+.PHONY : CollisionLayer.cpp.s
+
 FadingTextBox.obj: FadingTextBox.cpp.obj
 .PHONY : FadingTextBox.obj
 
@@ -476,6 +500,9 @@ help:
 	@echo ... CharacterGO.obj
 	@echo ... CharacterGO.i
 	@echo ... CharacterGO.s
+	@echo ... CollisionLayer.obj
+	@echo ... CollisionLayer.i
+	@echo ... CollisionLayer.s
 	@echo ... FadingTextBox.obj
 	@echo ... FadingTextBox.i
 	@echo ... FadingTextBox.s

@@ -23,6 +23,7 @@
 #include "Pinpoint.h"
 #include "TextManager.h"
 #include "ObjectManager.h"
+#include "CollisionLayer.h"
 
 
 class Game {

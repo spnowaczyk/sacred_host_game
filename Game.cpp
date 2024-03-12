@@ -13,6 +13,8 @@ SDL_Renderer* Game::sdlRen_renderer = nullptr;
 SDL_Event Game::sdlEvent_event;
 CharacterGO* go_player;
 Map* m_map;
+CollisionLayer* cl_layer;
+
 
 TextBox* textBox_mouseCoords;
 TextBox* textBox_debug;
@@ -72,6 +74,8 @@ void Game::Init(const char *title, int xpos, int ypos, int width, int height, bo
     ObjectManager::CreateObject("Chest", "../assets/chest.png", 64, 64, 7, 7, "looks like an old, rusty chest");
     m_map = new Map();
     m_map->RandomMap();
+    cl_layer = new CollisionLayer();
+    cl_layer->RandomColliders();
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
     Mix_Music* mixMusic_music = Mix_LoadMUS("../audio/enjoy_your_first_day_cadet.wav");
     //Mix_Chunk* mixChunk_sound = Mix_LoadWAV()
@@ -111,6 +115,7 @@ void Game::Render() {
     SDL_RenderClear(sdlRen_renderer);
 
     m_map->RenderMap();
+    cl_layer->Render();
     SFX::Render();
     ObjectManager::Render();
     TextManager::Render();

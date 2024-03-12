@@ -329,4 +329,5 @@ CMakeFiles/sacred_host.dir/Map.cpp.obj: \
  C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\Pinpoint.h \
  C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\TextManager.h \
  C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\FadingTextBox.h \
- C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\ObjectManager.h
+ C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\ObjectManager.h \
+ C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\CollisionLayer.h

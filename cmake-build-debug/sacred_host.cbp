@@ -96,6 +96,12 @@
 		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/CharacterGO.h">
 			<Option target="sacred_host"/>
 		</Unit>
+		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/CollisionLayer.cpp">
+			<Option target="sacred_host"/>
+		</Unit>
+		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/CollisionLayer.h">
+			<Option target="sacred_host"/>
+		</Unit>
 		<Unit filename="C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/FadingTextBox.cpp">
 			<Option target="sacred_host"/>
 		</Unit>

@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/CharacterGO.cpp" "CMakeFiles/sacred_host.dir/CharacterGO.cpp.obj" "gcc" "CMakeFiles/sacred_host.dir/CharacterGO.cpp.obj.d"
+  "C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/CollisionLayer.cpp" "CMakeFiles/sacred_host.dir/CollisionLayer.cpp.obj" "gcc" "CMakeFiles/sacred_host.dir/CollisionLayer.cpp.obj.d"
   "C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/FadingTextBox.cpp" "CMakeFiles/sacred_host.dir/FadingTextBox.cpp.obj" "gcc" "CMakeFiles/sacred_host.dir/FadingTextBox.cpp.obj.d"
   "C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/Game.cpp" "CMakeFiles/sacred_host.dir/Game.cpp.obj" "gcc" "CMakeFiles/sacred_host.dir/Game.cpp.obj.d"
   "C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/GameObject.cpp" "CMakeFiles/sacred_host.dir/GameObject.cpp.obj" "gcc" "CMakeFiles/sacred_host.dir/GameObject.cpp.obj.d"
