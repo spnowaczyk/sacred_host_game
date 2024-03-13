@@ -3,6 +3,7 @@
 //
 
 #include "CollisionLayer.h"
+#include "Game.h"
 
 CollisionLayer::CollisionLayer() {
     sdlRect_srcRect.x = sdlRect_srcRect.y = 0;
@@ -11,6 +12,12 @@ CollisionLayer::CollisionLayer() {
     sdlRect_dstRect.w = sdlRect_dstRect.h = 64;
 
     sdlTex_texture = TextureManager::LoadTexture("../assets/collider.png");
+
+    i_length = 12;
+    i_width = 20;
+
+}
+CollisionLayer::~CollisionLayer() {
 
 }
 
@@ -44,7 +51,70 @@ void CollisionLayer::MoveCollider(int oldLocalX, int oldLocalY, int newLocalX, i
 }
 
 bool CollisionLayer::DetectCollision(int localX, int localY) {
-    return bA_colliders[localY][localX];
+    if(localX >= 0 && localX < i_width && localY >= 0 && localY < i_length) {
+        return bA_colliders[localY][localX];
+    }
+    else return true;
+}
+
+std::deque<std::pair<int, int>> CollisionLayer::findWay(int startX, int startY, int finishX, int finishY) {
+    std::vector<std::vector<Step*>> generations;
+    std::vector<Step*> gen;
+
+    Step* correctPath = nullptr;
+    std::deque<std::pair<int, int>> res;
+
+    gen.push_back(new Step(startX, startY, nullptr));
+    generations.push_back(gen);
+
+    int i_stepsCount = 0;
+
+    while (i_stepsCount < 2000) {
+        std::vector<Step*> tempGen;
+        for(auto i : generations.back()) {
+            for(int j = 0; j < 4; j++) {
+                int newPosX = i->posX + Step::directionsX[j];
+                int newPosY = i->posY + Step::directionsY[j];
+
+                bool visitedByOtherStepThisGeneration = false;
+                for(auto j : tempGen) {
+                    if(newPosX == j->posX && newPosY == j->posY) visitedByOtherStepThisGeneration = true;
+                }
+
+                bool visitedByOtherStepPreviousGeneration = false;
+                for(auto j : generations) {
+                    for(auto k : j) {
+                        if(newPosX == k->posX && newPosY == k->posY) visitedByOtherStepThisGeneration = true;
+                    }
+                }
+
+                if(!DetectCollision(newPosX,newPosY) && !visitedByOtherStepThisGeneration && !visitedByOtherStepPreviousGeneration) {
+                    tempGen.push_back(new Step(newPosX, newPosY, i));
+                    i_stepsCount++;
+                    if(tempGen.back()->posX == finishX && tempGen.back()->posY == finishY) {
+                        correctPath = tempGen.back();
+                        break;
+                    }
+                }
+            }
+            if(correctPath != nullptr) break;
+        }
+        generations.push_back(tempGen);
+        if(correctPath != nullptr) break;
+    }
+
+    while (correctPath != nullptr) {
+        res.push_front(std::make_pair(correctPath->posX, correctPath->posY));
+        correctPath = correctPath->motherCell;
+    }
+
+    for(auto i : generations) {
+        for(auto j : i) {
+            delete j;
+            i_stepsCount--;
+        }
+    }
+    return res;
 }
 
 void CollisionLayer::Render() {

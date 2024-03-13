@@ -6,13 +6,14 @@
 #define SACRED_HOST_CHARACTERGO_H
 
 #include "GameObject.h"
+#include "deque"
 
 class TextBox;
 
 
 class CharacterGO : public GameObject {
 public:
-    CharacterGO(std::string name, const char* textureSheet, int width = 64, int height = 64, int xTile = 0, int yTile = 0);
+    CharacterGO(std::string name, const char* textureSheet, int width, int height, int xTile, int yTile, ObjectManager* menager);
     ~CharacterGO() override;
     void Update() override;
 
@@ -22,6 +23,7 @@ public:
 
 private:
     TextBox* textBox_position;
+    std::deque<std::pair<int, int>> Diip_WalkPath;
 };
 
 

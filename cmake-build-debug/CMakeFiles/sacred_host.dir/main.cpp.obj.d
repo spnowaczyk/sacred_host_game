@@ -321,6 +321,9 @@ CMakeFiles/sacred_host.dir/main.cpp.obj: \
  C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2_image-2.8.2/x86_64-w64-mingw32/include/SDL2/SDL_image.h \
  C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\GameObject.h \
  C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\CharacterGO.h \
+ C:/Program\ Files/JetBrains/CLion\ 2023.1.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/deque \
+ C:/Program\ Files/JetBrains/CLion\ 2023.1.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_deque.h \
+ C:/Program\ Files/JetBrains/CLion\ 2023.1.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/deque.tcc \
  C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\Map.h \
  C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\TextBox.h \
  C:\Users\s.nowaczyk\Documents\GitHub\sacred_host_game\MouseController.h \

@@ -6,10 +6,7 @@
 #include "TextureManager.h"
 #include "Game.h"
 
-std::vector<GameObject*> ObjectManager::goV_gameObjectsGeneral;
-GameObject* ObjectManager::goA_gameObjectsByLocals[12][20];
-
-GameObject::GameObject(std::string name, const char *textureSheet, int width, int height, int xTile, int yTile, std::string message) {
+GameObject::GameObject(std::string name, const char *textureSheet, int width, int height, int xTile, int yTile, ObjectManager* manager, std::string message) {
     this->sdlTex_objTexture = TextureManager::LoadTexture(textureSheet);
     b_markedToDeath = false;
     s_name = name;
@@ -29,6 +26,8 @@ GameObject::GameObject(std::string name, const char *textureSheet, int width, in
 
     i_yTile = yTile;
     i_xTile = xTile;
+
+    om_manager = manager;
 
     Game::i_gameObjects++;
 }

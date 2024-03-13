@@ -8,9 +8,11 @@
 #include "SDL.h"
 #include "string"
 
+class ObjectManager;
+
 class GameObject {
 public:
-    GameObject(std::string name, const char* textureSheet, int width = 64, int height = 64, int xTile = 0, int yTile = 0, std::string message = "");
+    GameObject(std::string name, const char* textureSheet, int width, int height, int xTile, int yTile,  ObjectManager* manager, std::string message);
     virtual ~GameObject();
 
     virtual void Update();
@@ -44,6 +46,8 @@ protected:
 
     SDL_Texture* sdlTex_objTexture;
     SDL_Rect sdlRect_srcRect, sdlRect_dstRect;
+
+    ObjectManager* om_manager;
 };
 
 

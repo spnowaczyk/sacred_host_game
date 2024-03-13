@@ -5,8 +5,8 @@
 #include "CharacterGO.h"
 #include "Game.h"
 
-CharacterGO::CharacterGO(std::string name, const char *textureSheet, int width, int height, int xTile, int yTile)
-    : GameObject(name, textureSheet, width, height, xTile, yTile) {
+CharacterGO::CharacterGO(std::string name, const char *textureSheet, int width, int height, int xTile, int yTile, ObjectManager* menager)
+    : GameObject(name, textureSheet, width, height, xTile, yTile, menager, s_message) {
     textBox_position = TextManager::CreateTextBox(100, 700, "character coords");
 }
 
@@ -19,7 +19,7 @@ void CharacterGO::Update() {
     MakeStep(4);
     if(i_xTile == 10 && i_yTile == 10){
         TextManager::DestroyTextBox(textBox_position);
-        ObjectManager::DestroyObject(this);
+        om_manager->DestroyObject(this);
     }
     TextManager::WriteMessage(textBox_position, "X: " + std::to_string(i_xTile) + " / Y: " + std::to_string(i_yTile));
 }
@@ -33,11 +33,11 @@ void CharacterGO::SelectDestination() {
     if(Game::b_selectButton == true) {
         int cursorTileX = Game::i_cursorCoordinatesX/64;
         int cursorTileY = Game::i_cursorCoordinatesY/64;
-        if(ObjectManager::getObjectByLocals(cursorTileX, cursorTileY) == nullptr) {
-            Move(cursorTileX, cursorTileY);
+        if(om_manager->getObjectByLocals(cursorTileX, cursorTileY) == nullptr) {
+            Diip_WalkPath = this->om_manager->cl_layer->findWay(i_xTile, i_yTile, cursorTileX, cursorTileY);
             SFX::DrawPinpoint();
         } else if (abs(cursorTileX - getIXTile()) <= 1 && abs(cursorTileY - getIYTile()) <= 1){
-            ObjectManager::getObjectByLocals(cursorTileX, cursorTileY)->Interact();
+            om_manager->getObjectByLocals(cursorTileX, cursorTileY)->Interact();
         }
     }
 }
@@ -59,7 +59,12 @@ void CharacterGO::MakeStep(int speed) {
         i_yTile = sdlRect_dstRect.y / 64;
         i_xTile = sdlRect_dstRect.x / 64;
 
-        ObjectManager::ChangeObjectLocals(i_prevXTile, i_prevYTile, i_xTile, i_yTile);
+        om_manager->ChangeObjectLocals(i_prevXTile, i_prevYTile, i_xTile, i_yTile);
+        if(!Diip_WalkPath.empty()) {
+            Move(Diip_WalkPath.front().first, Diip_WalkPath.front().second);
+            Diip_WalkPath.pop_front();
+        }
+
     }
 }
 

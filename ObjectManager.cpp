@@ -3,17 +3,22 @@
 //
 
 #include "ObjectManager.h"
+#include "Game.h"
+
+ObjectManager::ObjectManager() {
+this->cl_layer = new CollisionLayer();
+}
 
 GameObject* ObjectManager::CreateCharacter(std::string name, const char *textureSheet, int width, int height, int xTile,
                                            int yTile) {
-    GameObject* object = new CharacterGO(name, textureSheet, width, height, xTile, yTile);
+    GameObject* object = new CharacterGO(name, textureSheet, width, height, xTile, yTile, this);
     goA_gameObjectsByLocals[yTile][xTile] = object;
     goV_gameObjectsGeneral.push_back(object);
     return object;
 }
 
 GameObject * ObjectManager::CreateObject(std::string name, const char *textureSheet, int width, int height, int xTile, int yTile, std::string message) {
-    GameObject* object = new GameObject(name, textureSheet, width, height, xTile, yTile, message);
+    GameObject* object = new GameObject(name, textureSheet, width, height, xTile, yTile, this, message);
     goA_gameObjectsByLocals[yTile][xTile] = object;
     goV_gameObjectsGeneral.push_back(object);
     return object;
