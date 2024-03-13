@@ -17,10 +17,10 @@ CharacterGO::~CharacterGO() {
 void CharacterGO::Update() {
     SelectDestination();
     MakeStep(4);
-    if(i_xTile == 10 && i_yTile == 10){
+    /*if(i_xTile == 10 && i_yTile == 10){
         TextManager::DestroyTextBox(textBox_position);
         om_manager->DestroyObject(this);
-    }
+    }*/
     TextManager::WriteMessage(textBox_position, "X: " + std::to_string(i_xTile) + " / Y: " + std::to_string(i_yTile));
 }
 
@@ -34,7 +34,8 @@ void CharacterGO::SelectDestination() {
         int cursorTileX = Game::i_cursorCoordinatesX/64;
         int cursorTileY = Game::i_cursorCoordinatesY/64;
         if(om_manager->getObjectByLocals(cursorTileX, cursorTileY) == nullptr) {
-            Diip_WalkPath = this->om_manager->cl_layer->findWay(i_xTile, i_yTile, cursorTileX, cursorTileY);
+            Diip_WalkPath.clear();
+            Diip_WalkPath = this->om_manager->cl_layer->findWay(i_desXTile, i_desYTile, cursorTileX, cursorTileY);
             SFX::DrawPinpoint();
         } else if (abs(cursorTileX - getIXTile()) <= 1 && abs(cursorTileY - getIYTile()) <= 1){
             om_manager->getObjectByLocals(cursorTileX, cursorTileY)->Interact();

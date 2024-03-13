@@ -69,7 +69,7 @@ std::deque<std::pair<int, int>> CollisionLayer::findWay(int startX, int startY, 
 
     int i_stepsCount = 0;
 
-    while (i_stepsCount < 2000) {
+    while (i_stepsCount < 200) {
         std::vector<Step*> tempGen;
         for(auto i : generations.back()) {
             for(int j = 0; j < 4; j++) {
