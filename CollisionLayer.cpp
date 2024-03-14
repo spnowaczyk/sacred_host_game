@@ -58,7 +58,6 @@ bool CollisionLayer::DetectCollision(int localX, int localY) {
 }
 
 std::deque<std::pair<int, int>> CollisionLayer::findWay(int startX, int startY, int finishX, int finishY) {
-    TextBox* textBox = TextManager::CreateFadingTextBox(500, 500, "STEPS");
     std::vector<std::vector<Step*>> generations;
     std::vector<Step*> gen;
 
@@ -68,9 +67,7 @@ std::deque<std::pair<int, int>> CollisionLayer::findWay(int startX, int startY, 
     gen.push_back(new Step(startX, startY, nullptr));
     generations.push_back(gen);
 
-    int i_stepsCount = 0;
-
-    while (i_stepsCount < 200) {
+    for (int cnt = 0; cnt < 2000; cnt++) {
         std::vector<Step*> tempGen;
         for(auto i : generations.back()) {
             for(int j = 0; j < 4; j++) {
@@ -91,10 +88,6 @@ std::deque<std::pair<int, int>> CollisionLayer::findWay(int startX, int startY, 
 
                 if(!DetectCollision(newPosX,newPosY) && !visitedByOtherStepThisGeneration && !visitedByOtherStepPreviousGeneration) {
                     tempGen.push_back(new Step(newPosX, newPosY, i));
-                    i_stepsCount++;
-                    textBox->WriteMessage(std::to_string(i_stepsCount).c_str());
-                    TextManager::Update();
-                    TextManager::Render();
                     if(tempGen.back()->posX == finishX && tempGen.back()->posY == finishY) {
                         correctPath = tempGen.back();
                         break;
@@ -115,7 +108,6 @@ std::deque<std::pair<int, int>> CollisionLayer::findWay(int startX, int startY, 
     for(auto i : generations) {
         for(auto j : i) {
             delete j;
-            i_stepsCount--;
         }
     }
     return res;

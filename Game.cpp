@@ -83,6 +83,13 @@ void Game::Init(const char *title, int xpos, int ypos, int width, int height, bo
     Mix_PlayMusic(mixMusic_music, -1);
     textBox_mouseCoords = TextManager::CreateTextBox(1000, 700, "mouse coords");
     textBox_debug = TextManager::CreateTextBox(100, 100, "debug");
+
+    for(int y = 0; y < 12; y++) {
+        for(int x = 0; x < 20; x++) {
+            std::cout << om_objectManager->getObjectByLocals(x, y);
+        }
+        std::cout << "\n";
+    }
 }
 
 void Game::HandleEvents() {

@@ -6,7 +6,13 @@
 #include "Game.h"
 
 ObjectManager::ObjectManager() {
-this->cl_layer = new CollisionLayer();
+    this->cl_layer = new CollisionLayer();
+
+    for(int y = 0; y < 12; y++) {
+        for(int x = 0; x < 20; x++) {
+            goA_gameObjectsByLocals[y][x] = nullptr;
+        }
+    }
 }
 
 GameObject* ObjectManager::CreateCharacter(std::string name, const char *textureSheet, int width, int height, int xTile,

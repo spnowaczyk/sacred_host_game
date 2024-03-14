@@ -61,6 +61,7 @@ void CharacterGO::MakeStep(int speed) {
         i_xTile = sdlRect_dstRect.x / 64;
 
         om_manager->ChangeObjectLocals(i_prevXTile, i_prevYTile, i_xTile, i_yTile);
+
         if(!Diip_WalkPath.empty()) {
             Move(Diip_WalkPath.front().first, Diip_WalkPath.front().second);
             Diip_WalkPath.pop_front();

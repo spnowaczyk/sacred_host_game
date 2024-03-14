@@ -37,7 +37,6 @@ GameObject::~GameObject() {
 }
 
 void GameObject::Update() {
-    std::cout << s_name + " is on position " + std::to_string(i_xTile) + " " + std::to_string(i_yTile) << std::endl;
 }
 
 void GameObject::Render() {
