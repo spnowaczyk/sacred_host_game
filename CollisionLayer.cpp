@@ -67,7 +67,7 @@ std::deque<std::pair<int, int>> CollisionLayer::findWay(int startX, int startY, 
     gen.push_back(new Step(startX, startY, nullptr));
     generations.push_back(gen);
 
-    for (int cnt = 0; cnt < 2000; cnt++) {
+    do {
         std::vector<Step*> tempGen;
         for(auto i : generations.back()) {
             for(int j = 0; j < 4; j++) {
@@ -98,7 +98,7 @@ std::deque<std::pair<int, int>> CollisionLayer::findWay(int startX, int startY, 
         }
         generations.push_back(tempGen);
         if(correctPath != nullptr) break;
-    }
+    } while (!generations.back().empty());
 
     while (correctPath != nullptr) {
         res.push_front(std::make_pair(correctPath->posX, correctPath->posY));
