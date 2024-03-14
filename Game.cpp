@@ -81,7 +81,7 @@ void Game::Init(const char *title, int xpos, int ypos, int width, int height, bo
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
     Mix_Music* mixMusic_music = Mix_LoadMUS("../audio/enjoy_your_first_day_cadet.wav");
     //Mix_Chunk* mixChunk_sound = Mix_LoadWAV()
-    Mix_PlayMusic(mixMusic_music, -1);
+    //Mix_PlayMusic(mixMusic_music, -1);
     textBox_mouseCoords = TextManager::CreateTextBox(1000, 700, "mouse coords");
     textBox_debug = TextManager::CreateTextBox(100, 100, "debug");
 

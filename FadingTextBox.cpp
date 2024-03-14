@@ -18,5 +18,8 @@ void FadingTextBox::Update() {
     if(i_cnt > 0) {
         i_cnt--;
         SDL_SetTextureAlphaMod(sdlTexture_texture, i_cnt * 2);
-    } else if(i_cnt <= 0) b_markedToDeath = true;
+    } else if(i_cnt <= 0) {
+        b_markedToDeath = true;
+        SDL_DestroyTexture(sdlTexture_texture);
+    }
 }

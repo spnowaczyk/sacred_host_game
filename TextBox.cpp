@@ -25,11 +25,14 @@ TextBox::TextBox(int posX, int posY, int reds, int greens, int blues, int size, 
 
 TextBox::~TextBox() {
     Game::i_textBoxes--;
+    TTF_CloseFont(ttfFont_font);
+    SDL_DestroyTexture(sdlTexture_texture);
 }
 
 void TextBox::WriteMessage(const char *message) {
     TTF_SizeText(ttfFont_font, message, &sdlRect_rect.w, &sdlRect_rect.h);
     sdlSurface_surface = TTF_RenderText_Solid(ttfFont_font, message, sdlColor_color);
+    SDL_DestroyTexture(sdlTexture_texture);
     sdlTexture_texture = SDL_CreateTextureFromSurface(Game::sdlRen_renderer, sdlSurface_surface);
     SDL_FreeSurface(sdlSurface_surface);
 }
