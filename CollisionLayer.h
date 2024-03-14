@@ -8,13 +8,14 @@
 #include "SDL.h"
 #include "deque"
 
+class Map;
 
 class CollisionLayer {
 public:
     CollisionLayer();
     ~CollisionLayer();
 
-    void LoadColliders(int collidersArray [12][20]);
+    void LoadColliders(Map* map);
     void RandomColliders();
     void RemoveCollider(int localX, int localY);
     void AddCollider(int localX, int localY);

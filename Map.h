@@ -17,7 +17,10 @@ public:
 
     void RandomMap();
     void LoadMap(int tileTexturesArray [12][20]);
+    bool IsWall(int tileX, int tileY);
     void RenderMap();
+    void RenderObscuringMap();
+
 
     GameObject* getOccupyingObject(int xTile, int yTile);
 
@@ -35,7 +38,6 @@ private:
     };
 
     int iA_tileTexturesMap[12][20];
-    GameObject* goA_occupyingObjects[12][20];
 
 };
 

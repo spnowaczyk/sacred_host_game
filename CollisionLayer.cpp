@@ -21,10 +21,10 @@ CollisionLayer::~CollisionLayer() {
 
 }
 
-void CollisionLayer::LoadColliders(int collidersArray[12][20]) {
+void CollisionLayer::LoadColliders(Map* map) {
     for (int row = 0; row < 12; ++row) {
         for (int col = 0; col < 20; ++col) {
-            bA_colliders[row][col] = collidersArray[row][col];
+            bA_colliders[row][col] = map->IsWall(col, row);
         }
     }
 }

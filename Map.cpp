@@ -7,9 +7,7 @@
 Map::Map() {
     sdlTexture_sand = TextureManager::LoadTexture("../assets/sand.png");
     sdlTexture_grass = TextureManager::LoadTexture("../assets/grass.png");
-    sdlTexture_concrete = TextureManager::LoadTexture("../assets/dusty_concrete.png");
-    sdlRect_dst.w = sdlRect_dst.h = 64;
-    sdlRect_src.w = sdlRect_src.h = 64;
+    sdlTexture_concrete = TextureManager::LoadTexture("../assets/wall.png");
     sdlRect_src.x = sdlRect_src.y = 0;
     sdlRect_dst.x = sdlRect_dst.y = 0;
 }
@@ -27,12 +25,29 @@ void Map::LoadMap(int tileTexturesArray [12][20]) {
 }
 
 void Map::RenderMap() {
+    sdlRect_src.h = sdlRect_dst.h = 64;
+    sdlRect_src.w = sdlRect_dst.w = 64;
     for (int row = 0; row < 12; ++row) {
         for (int col = 0; col < 20; ++col) {
+            int i_type = iA_tileTexturesMap[row][col];
             this->sdlRect_dst.x = col*64;
             this->sdlRect_dst.y = row*64;
-            int i_type = iA_tileTexturesMap[row][col];
             TextureManager::DrawTexture(*sdlTextureA_tiles[i_type], sdlRect_src, sdlRect_dst);
+        }
+    }
+}
+
+void Map::RenderObscuringMap() {
+    sdlRect_src.h = sdlRect_dst.h = 96;
+    sdlRect_src.w = sdlRect_dst.w = 64;
+    for (int row = 0; row < 12; ++row) {
+        for (int col = 0; col < 20; ++col) {
+            int i_type = iA_tileTexturesMap[row][col];
+            if(i_type == 0) {
+                this->sdlRect_dst.x = col*64;
+                this->sdlRect_dst.y = row*64-32;
+                TextureManager::DrawTexture(*sdlTextureA_tiles[i_type], sdlRect_src, sdlRect_dst);
+            }
         }
     }
 }
@@ -45,6 +60,8 @@ void Map::RandomMap() {
     }
 }
 
-GameObject *Map::getOccupyingObject(int xTile, int yTile) {
-    return goA_occupyingObjects[xTile][yTile];
+bool Map::IsWall(int tileX, int tileY) {
+    if(iA_tileTexturesMap[tileY][tileX] == 0) return true;
+    else return false;
 }
+

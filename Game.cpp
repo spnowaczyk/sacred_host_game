@@ -70,13 +70,14 @@ void Game::Init(const char *title, int xpos, int ypos, int width, int height, bo
     Game::i_visualEffects = 0;
     Game::i_textBoxes = 0;
 
-    om_objectManager = new ObjectManager();
-
-    om_objectManager->CreateCharacter("Seth", "../assets/Seth2.png", 64, 64, 2, 2);
-    om_objectManager->CreateObject("Chest", "../assets/chest.png", 64, 64, 7, 7, "looks like an old, rusty chest");
     m_map = new Map();
     m_map->RandomMap();
-    om_objectManager->cl_layer->RandomColliders();
+    om_objectManager = new ObjectManager();
+    om_objectManager->cl_layer->LoadColliders(m_map);
+    om_objectManager->CreateCharacter("Seth", "../assets/Seth2.png", 64, 64, 2, 2);
+    om_objectManager->CreateObject("Chest", "../assets/chest.png", 64, 64, 7, 7, "looks like an old, rusty chest");
+
+
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
     Mix_Music* mixMusic_music = Mix_LoadMUS("../audio/enjoy_your_first_day_cadet.wav");
     //Mix_Chunk* mixChunk_sound = Mix_LoadWAV()
@@ -123,9 +124,10 @@ void Game::Render() {
     SDL_RenderClear(sdlRen_renderer);
 
     m_map->RenderMap();
-    om_objectManager->cl_layer->Render();
-    SFX::Render();
     om_objectManager->Render();
+    m_map->RenderObscuringMap();
+    SFX::Render();
+    //om_objectManager->cl_layer->Render();
     TextManager::Render();
 
     SDL_RenderPresent(sdlRen_renderer);

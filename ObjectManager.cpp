@@ -20,6 +20,7 @@ GameObject* ObjectManager::CreateCharacter(std::string name, const char *texture
     GameObject* object = new CharacterGO(name, textureSheet, width, height, xTile, yTile, this);
     goA_gameObjectsByLocals[yTile][xTile] = object;
     goV_gameObjectsGeneral.push_back(object);
+    this->cl_layer->AddCollider(xTile, yTile);
     return object;
 }
 
@@ -27,6 +28,7 @@ GameObject * ObjectManager::CreateObject(std::string name, const char *textureSh
     GameObject* object = new GameObject(name, textureSheet, width, height, xTile, yTile, this, message);
     goA_gameObjectsByLocals[yTile][xTile] = object;
     goV_gameObjectsGeneral.push_back(object);
+    this->cl_layer->AddCollider(xTile, yTile);
     return object;
 }
 
@@ -34,6 +36,7 @@ void ObjectManager::ChangeObjectLocals(int oldLocalX, int oldLocalY, int newLoca
     GameObject* object = goA_gameObjectsByLocals[oldLocalY][oldLocalX];
     goA_gameObjectsByLocals[oldLocalY][oldLocalX] = nullptr;
     goA_gameObjectsByLocals[newLocalY][newLocalX] = object;
+    this->cl_layer->MoveCollider(oldLocalX, oldLocalY, newLocalX, newLocalY);
 }
 
 GameObject *ObjectManager::getObjectByLocals(int localX, int localY) {
@@ -42,12 +45,14 @@ GameObject *ObjectManager::getObjectByLocals(int localX, int localY) {
 
 void ObjectManager::DeleteObjectFromLocals(int localX, int localY) {
     goA_gameObjectsByLocals[localY][localX];
+    this->cl_layer->RemoveCollider(localX, localY);
 }
 
 void ObjectManager::DestroyObject(GameObject *object) {
     if(goA_gameObjectsByLocals[object->getIYTile()][object->getIXTile()] == object){
         goA_gameObjectsByLocals[object->getIYTile()][object->getIXTile()] = nullptr;
     }
+    this->cl_layer->RemoveCollider(object->getIXTile(), object->getIYTile());
     object->MarkToDeath();
 }
 
