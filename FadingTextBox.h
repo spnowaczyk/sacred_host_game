@@ -10,7 +10,7 @@
 class FadingTextBox : public TextBox{
 public:
     FadingTextBox(int posX, int posY, int reds, int greens, int blues, int size, const char *message, int alpha);
-    ~FadingTextBox();
+    ~FadingTextBox() override;
     void Update() override;
 
 private:

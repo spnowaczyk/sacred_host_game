@@ -77,7 +77,6 @@ void Game::Init(const char *title, int xpos, int ypos, int width, int height, bo
     om_objectManager->CreateCharacter("Seth", "../assets/Seth2.png", 64, 64, 2, 2);
     om_objectManager->CreateObject("Chest", "../assets/chest.png", 64, 64, 7, 7, "looks like an old, rusty chest");
 
-
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
     Mix_Music* mixMusic_music = Mix_LoadMUS("../audio/enjoy_your_first_day_cadet.wav");
     //Mix_Chunk* mixChunk_sound = Mix_LoadWAV()
@@ -125,8 +124,8 @@ void Game::Render() {
 
     m_map->RenderMap();
     om_objectManager->Render();
-    m_map->RenderObscuringMap();
     SFX::Render();
+    m_map->RenderObscuringMap();
     //om_objectManager->cl_layer->Render();
     TextManager::Render();
 
@@ -134,6 +133,7 @@ void Game::Render() {
 }
 
 void Game::Clear() {
+
     SDL_DestroyWindow(sdlWin_window);
     SDL_DestroyRenderer(sdlRen_renderer);
     SDL_Quit();

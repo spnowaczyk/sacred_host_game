@@ -10,7 +10,8 @@ FadingTextBox::FadingTextBox(int posX, int posY, int reds, int greens, int blues
 }
 
 FadingTextBox::~FadingTextBox() {
-
+    //SDL_DestroyTexture(sdlTexture_texture);
+    //TTF_CloseFont(ttfFont_font);
 }
 
 void FadingTextBox::Update() {
@@ -20,6 +21,5 @@ void FadingTextBox::Update() {
         SDL_SetTextureAlphaMod(sdlTexture_texture, i_cnt * 2);
     } else if(i_cnt <= 0) {
         b_markedToDeath = true;
-        SDL_DestroyTexture(sdlTexture_texture);
     }
 }

@@ -6,11 +6,11 @@
 #include "TextureManager.h"
 #include "Game.h"
 
-GameObject::GameObject(std::string name, const char *textureSheet, int width, int height, int xTile, int yTile, ObjectManager* manager, std::string message) {
+GameObject::GameObject(std::string name, const char *textureSheet, int width, int height, int xTile, int yTile,
+                       ObjectManager* manager, std::string message) : s_name(name), s_message(message), i_xTile(xTile),
+                       i_yTile(yTile), om_manager(manager){
     this->sdlTex_objTexture = TextureManager::LoadTexture(textureSheet);
     b_markedToDeath = false;
-    s_name = name;
-    s_message = message;
 
     sdlRect_dstRect.x = xTile * 64;
     sdlRect_dstRect.y = yTile * 64;
@@ -24,10 +24,25 @@ GameObject::GameObject(std::string name, const char *textureSheet, int width, in
     sdlRect_srcRect.h = sdlRect_dstRect.h = width;
     sdlRect_srcRect.w = sdlRect_dstRect.w = height;
 
-    i_yTile = yTile;
-    i_xTile = xTile;
+    Game::i_gameObjects++;
+}
 
-    om_manager = manager;
+GameObject::GameObject(std::string name, const char *textureSheet, int width, int height, int xTile, int yTile,
+                       ObjectManager *manager) : s_name(name), i_xTile(xTile), i_yTile(yTile), om_manager(manager){
+    this->sdlTex_objTexture = TextureManager::LoadTexture(textureSheet);
+    b_markedToDeath = false;
+
+    sdlRect_dstRect.x = xTile * 64;
+    sdlRect_dstRect.y = yTile * 64;
+
+    i_enqueuedXTile = i_desXTile = xTile;
+    i_enqueuedYTile = i_desYTile = yTile;
+
+    sdlRect_srcRect.x = 0;
+    sdlRect_srcRect.y = 0;
+
+    sdlRect_srcRect.h = sdlRect_dstRect.h = width;
+    sdlRect_srcRect.w = sdlRect_dstRect.w = height;
 
     Game::i_gameObjects++;
 }
@@ -62,5 +77,7 @@ bool GameObject::IsMarkedToDeath() {
 void GameObject::MarkToDeath() {
     b_markedToDeath = true;
 }
+
+
 
 

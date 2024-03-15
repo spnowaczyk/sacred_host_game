@@ -13,6 +13,7 @@ class ObjectManager;
 class GameObject {
 public:
     GameObject(std::string name, const char* textureSheet, int width, int height, int xTile, int yTile,  ObjectManager* manager, std::string message);
+    GameObject(std::string name, const char* textureSheet, int width, int height, int xTile, int yTile,  ObjectManager* manager);
     virtual ~GameObject();
 
     virtual void Update();

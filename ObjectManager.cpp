@@ -15,6 +15,10 @@ ObjectManager::ObjectManager() {
     }
 }
 
+ObjectManager::~ObjectManager() {
+    delete cl_layer;
+}
+
 GameObject* ObjectManager::CreateCharacter(std::string name, const char *textureSheet, int width, int height, int xTile,
                                            int yTile) {
     GameObject* object = new CharacterGO(name, textureSheet, width, height, xTile, yTile, this);

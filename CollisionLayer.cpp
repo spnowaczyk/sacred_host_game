@@ -18,7 +18,7 @@ CollisionLayer::CollisionLayer() {
 
 }
 CollisionLayer::~CollisionLayer() {
-
+    SDL_DestroyTexture(sdlTex_texture);
 }
 
 void CollisionLayer::LoadColliders(Map* map) {

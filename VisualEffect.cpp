@@ -11,6 +11,7 @@ VisualEffect::VisualEffect() {
 }
 
 VisualEffect::~VisualEffect() {
+    SDL_DestroyTexture(sdlTex_texture);
     Game::i_visualEffects--;
 }
 

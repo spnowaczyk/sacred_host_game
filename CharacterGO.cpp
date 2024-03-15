@@ -6,12 +6,12 @@
 #include "Game.h"
 
 CharacterGO::CharacterGO(std::string name, const char *textureSheet, int width, int height, int xTile, int yTile, ObjectManager* menager)
-    : GameObject(name, textureSheet, width, height, xTile, yTile, menager, s_message) {
+    : GameObject(name, textureSheet, width, height, xTile, yTile, menager) {
     textBox_position = TextManager::CreateTextBox(100, 700, "character coords");
 }
 
 CharacterGO::~CharacterGO() {
-
+    TextManager::DestroyTextBox(textBox_position);
 }
 
 void CharacterGO::Update() {
