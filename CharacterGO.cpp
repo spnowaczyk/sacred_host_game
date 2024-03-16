@@ -5,8 +5,9 @@
 #include "CharacterGO.h"
 #include "Game.h"
 
-CharacterGO::CharacterGO(std::string name, const char *textureSheet, int width, int height, int xTile, int yTile, ObjectManager* menager)
-    : GameObject(name, textureSheet, width, height, xTile, yTile, menager) {
+CharacterGO::CharacterGO(std::string name, const char *textureSheet, int tilesWidth, int tilesHeight, int xTile, int yTile,
+                         ObjectManager* objectManager, SFXManager* sfxManager)
+    : GameObject(name, textureSheet, tilesWidth, tilesHeight, xTile, yTile, objectManager, sfxManager, "") {
     textBox_position = TextManager::CreateTextBox(100, 700, "character coords");
 }
 
@@ -16,57 +17,59 @@ CharacterGO::~CharacterGO() {
 
 void CharacterGO::Update() {
     SelectDestination();
-    MakeStep(4);
+    MakeStep(2);
     /*if(i_xTile == 10 && i_yTile == 10){
         TextManager::DestroyTextBox(textBox_position);
-        om_manager->DestroyObject(this);
+        objMan_manager->DestroyObject(this);
     }*/
     TextManager::WriteMessage(textBox_position, "X: " + std::to_string(i_xTile) + " / Y: " + std::to_string(i_yTile));
 }
 
 void CharacterGO::Move(int tileX, int tileY) {
-    i_enqueuedXTile = tileX;
-    i_enqueuedYTile = tileY;
+    i_desXTile = tileX;
+    i_desYTile = tileY;
 }
 
 void CharacterGO::SelectDestination() {
     if(Game::b_selectButton == true) {
-        int cursorTileX = Game::i_cursorCoordinatesX/64;
-        int cursorTileY = Game::i_cursorCoordinatesY/64;
-        if(om_manager->getObjectByLocals(cursorTileX, cursorTileY) == nullptr) {
+        int cursorTileX = Game::i_cursorCoordinatesX/Game::i_tileSize;
+        int cursorTileY = Game::i_cursorCoordinatesY/Game::i_tileSize;
+        if(objMan_manager->getObjectByLocals(cursorTileX, cursorTileY) == nullptr) {
             Diip_WalkPath.clear();
-            Diip_WalkPath = this->om_manager->cl_layer->findWay(i_desXTile, i_desYTile, cursorTileX, cursorTileY);
-            SFX::DrawPinpoint();
+            this->objMan_manager->cl_layer->RemoveCollider(i_xTile, i_yTile);
+            Diip_WalkPath = this->objMan_manager->cl_layer->findWay(i_desXTile, i_desYTile, cursorTileX, cursorTileY);
+            this->objMan_manager->cl_layer->AddCollider(i_xTile, i_yTile);
+            sfxMan_manager->DrawPinpoint();
         } else if (abs(cursorTileX - getIXTile()) <= 1 && abs(cursorTileY - getIYTile()) <= 1){
-            om_manager->getObjectByLocals(cursorTileX, cursorTileY)->Interact();
+            objMan_manager->getObjectByLocals(cursorTileX, cursorTileY)->Interact();
         }
     }
 }
 
 void CharacterGO::MakeStep(int speed) {
-    if(sdlRect_dstRect.x < i_desXTile * 64) sdlRect_dstRect.x += speed;
-    else if(sdlRect_dstRect.x > i_desXTile * 64) sdlRect_dstRect.x -= speed;
-    else if(sdlRect_dstRect.y < i_desYTile*64) sdlRect_dstRect.y += speed;
-    else if(sdlRect_dstRect.y > i_desYTile*64) sdlRect_dstRect.y -= speed;
+    int i_velocity = ((float)speed / 4.0f) * ((float)Game::i_tileSize / 8.0f);
+    if(sdlRect_dstRect.x < i_desXTile * Game::i_tileSize) sdlRect_dstRect.x += i_velocity;
+    else if(sdlRect_dstRect.x > i_desXTile * Game::i_tileSize) sdlRect_dstRect.x -= i_velocity;
+    else if(sdlRect_dstRect.y < i_desYTile * Game::i_tileSize) sdlRect_dstRect.y += i_velocity;
+    else if(sdlRect_dstRect.y > i_desYTile * Game::i_tileSize) sdlRect_dstRect.y -= i_velocity;
 
 
-    if(sdlRect_dstRect.y % 64 == 0 && sdlRect_dstRect.x % 64 == 0) {
-        i_desXTile = i_enqueuedXTile;
-        i_desYTile = i_enqueuedYTile;
+    if(sdlRect_dstRect.y % Game::i_tileSize == 0 && sdlRect_dstRect.x % Game::i_tileSize == 0) {
+        if(i_desXTile != sdlRect_dstRect.x/Game::i_tileSize || i_desYTile != sdlRect_dstRect.y/Game::i_tileSize){
+            std::cout << "Whut bro!";
+        }
 
         int i_prevYTile = i_yTile;
         int i_prevXTile = i_xTile;
+        i_yTile = sdlRect_dstRect.y / Game::i_tileSize;
+        i_xTile = sdlRect_dstRect.x / Game::i_tileSize;
 
-        i_yTile = sdlRect_dstRect.y / 64;
-        i_xTile = sdlRect_dstRect.x / 64;
-
-        om_manager->ChangeObjectLocals(i_prevXTile, i_prevYTile, i_xTile, i_yTile);
+        objMan_manager->ChangeObjectLocalsAndColliders(i_prevXTile, i_prevYTile, i_xTile, i_yTile);
 
         if(!Diip_WalkPath.empty()) {
             Move(Diip_WalkPath.front().first, Diip_WalkPath.front().second);
             Diip_WalkPath.pop_front();
         }
-
     }
 }
 

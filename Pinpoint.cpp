@@ -5,7 +5,7 @@
 #include "Pinpoint.h"
 #include "Game.h"
 
-Pinpoint::Pinpoint(int tileX, int tileY) : VisualEffect() {
+Pinpoint::Pinpoint(int tileX, int tileY, SFXManager* sfxManager) : VisualEffect(sfxManager) {
     i_tileX = tileX;
     i_tileY = tileY;
     i_tilesHeight = 1;
@@ -17,17 +17,20 @@ Pinpoint::Pinpoint(int tileX, int tileY) : VisualEffect() {
     sdlRect_srcRect.x = 0;
     sdlRect_srcRect.y = 0;
 
-    sdlRect_srcRect.h = sdlRect_dstRect.h = i_tilesHeight*64;
-    sdlRect_srcRect.w = sdlRect_dstRect.w = i_tilesWidth*64;
+    sdlRect_srcRect.h = i_tilesHeight*Game::i_srcTileSize;
+    sdlRect_dstRect.h = i_tilesHeight*Game::i_tileSize;
+    sdlRect_srcRect.w = i_tilesHeight*Game::i_srcTileSize;
+    sdlRect_dstRect.w = i_tilesWidth*Game::i_tileSize;
 
-    sdlRect_dstRect.x = i_tileX*64;
-    sdlRect_dstRect.y = i_tileY*64;
+    sdlRect_dstRect.x = i_tileX*Game::i_tileSize;
+    sdlRect_dstRect.y = i_tileY*Game::i_tileSize;
 
     Game::i_pinPoints++;
 }
 
 Pinpoint::~Pinpoint() {
     Game::i_pinPoints--;
+    SDL_DestroyTexture(sdlTex_texture);
 }
 
 void Pinpoint::Update() {

@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "sacred_host::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-sacred_host-Debug-b628d88f25e2d55b07d4.json",
+					"jsonFile" : "target-sacred_host-Debug-1ac451d3d826dffb2043.json",
 					"name" : "sacred_host",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/cmake-build-debug",
-		"source" : "C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game"
+		"build" : "C:/Dev/sacred_host/cmake-build-debug",
+		"source" : "C:/Dev/sacred_host"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 6
+		"minor" : 5
 	}
 }

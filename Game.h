@@ -19,7 +19,7 @@
 #include "Map.h"
 #include "TextBox.h"
 #include "MouseController.h"
-#include "SFX.h"
+#include "SFXManager.h"
 #include "Pinpoint.h"
 #include "TextManager.h"
 #include "ObjectManager.h"
@@ -41,6 +41,9 @@ public:
 
     static SDL_Renderer* sdlRen_renderer;
     static SDL_Event sdlEvent_event;
+
+    static int i_tileSize;
+    static int i_srcTileSize;
 
     static int i_textBoxes, i_pinPoints, i_visualEffects, i_gameObjects;
 

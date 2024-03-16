@@ -35,8 +35,8 @@ add_executable(sacred_host main.cpp
         TextBox.h
         MouseController.cpp
         MouseController.h
-        SFX.cpp
-        SFX.h
+        SFXManager.cpp
+        SFXManager.h
         VisualEffect.cpp
         VisualEffect.h
         Pinpoint.cpp

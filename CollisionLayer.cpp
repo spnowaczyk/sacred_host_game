@@ -7,9 +7,9 @@
 
 CollisionLayer::CollisionLayer() {
     sdlRect_srcRect.x = sdlRect_srcRect.y = 0;
-    sdlRect_srcRect.w = sdlRect_srcRect.h = 64;
+    sdlRect_srcRect.w = sdlRect_srcRect.h = Game::i_tileSize;
 
-    sdlRect_dstRect.w = sdlRect_dstRect.h = 64;
+    sdlRect_dstRect.w = sdlRect_dstRect.h = Game::i_tileSize;
 
     sdlTex_texture = TextureManager::LoadTexture("../assets/collider.png");
 
@@ -117,8 +117,9 @@ void CollisionLayer::Render() {
     for (int row = 0; row < 12; ++row) {
         for (int col = 0; col < 20; ++col) {
             if(bA_colliders[row][col] == true) {
-                this->sdlRect_dstRect.x = col * 64;
-                this->sdlRect_dstRect.y = row * 64;
+                this->sdlRect_dstRect.x = col * Game::i_tileSize;
+                this->sdlRect_dstRect.y = row * Game::i_tileSize;
+                this->sdlRect_dstRect.h = sdlRect_dstRect.w = Game::i_tileSize;
 
                 SDL_RenderCopy(Game::sdlRen_renderer, sdlTex_texture, &sdlRect_srcRect, &sdlRect_dstRect);
             }

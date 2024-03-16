@@ -13,7 +13,8 @@ class TextBox;
 
 class CharacterGO : public GameObject {
 public:
-    CharacterGO(std::string name, const char* textureSheet, int width, int height, int xTile, int yTile, ObjectManager* menager);
+    CharacterGO(std::string name, const char* textureSheet, int tilesWidth, int tilesHeight, int xTile, int yTile,
+                ObjectManager* objectManager, SFXManager* sfxManager);
     ~CharacterGO() override;
     void Update() override;
 

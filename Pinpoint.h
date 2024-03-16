@@ -10,7 +10,7 @@
 
 class Pinpoint : public VisualEffect{
 public:
-    Pinpoint(int tileX, int tileY);
+    Pinpoint(int tileX, int tileY, SFXManager* sfxManager);
     ~Pinpoint() override;
 
     void Update() override;

@@ -5,13 +5,19 @@
 #include "Game.h"
 #include "string"
 
+bool b_debug = false;
+bool b_changedThisCycle = false;
+
 int i_cnt = 0;
 int Game::i_cursorCoordinatesX, Game::i_cursorCoordinatesY;
 bool Game::b_selectButton;
 
+int Game::i_tileSize = 80;
+int Game::i_srcTileSize = 64;
 SDL_Renderer* Game::sdlRen_renderer = nullptr;
 SDL_Event Game::sdlEvent_event;
-ObjectManager* om_objectManager;
+ObjectManager* objMan_objectManager;
+SFXManager* sfxMan_sfxManager;
 CharacterGO* go_player;
 Map* m_map;
 
@@ -51,7 +57,7 @@ void Game::Init(const char *title, int xpos, int ypos, int width, int height, bo
                 }
                 this->sdlRen_renderer = SDL_CreateRenderer(sdlWin_window, -1, 0);
                 if (sdlRen_renderer) {
-                    SDL_SetRenderDrawColor(sdlRen_renderer, 255, 255, 255, 255);
+                    SDL_SetRenderDrawColor(sdlRen_renderer, 190, 80, 0, 255);
                     std::cout << "Renderer created properly" << std::endl;
                 }
 
@@ -72,21 +78,22 @@ void Game::Init(const char *title, int xpos, int ypos, int width, int height, bo
 
     m_map = new Map();
     m_map->RandomMap();
-    om_objectManager = new ObjectManager();
-    om_objectManager->cl_layer->LoadColliders(m_map);
-    om_objectManager->CreateCharacter("Seth", "../assets/Seth2.png", 64, 64, 2, 2);
-    om_objectManager->CreateObject("Chest", "../assets/chest.png", 64, 64, 7, 7, "looks like an old, rusty chest");
+    sfxMan_sfxManager = new SFXManager();
+    objMan_objectManager = new ObjectManager(sfxMan_sfxManager);
+    objMan_objectManager->cl_layer->LoadColliders(m_map);
+    objMan_objectManager->CreateCharacter("Seth", "../assets/Seth2.png", 1, 1, 2, 2);
+    objMan_objectManager->CreateObject("Chest", "../assets/chest.png", 1, 1, 7, 7, "looks like an old, rusty chest");
 
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
     Mix_Music* mixMusic_music = Mix_LoadMUS("../audio/enjoy_your_first_day_cadet.wav");
     //Mix_Chunk* mixChunk_sound = Mix_LoadWAV()
-    //Mix_PlayMusic(mixMusic_music, -1);
+    Mix_PlayMusic(mixMusic_music, -1);
     textBox_mouseCoords = TextManager::CreateTextBox(1000, 700, "mouse coords");
     textBox_debug = TextManager::CreateTextBox(100, 100, "debug");
 
     for(int y = 0; y < 12; y++) {
         for(int x = 0; x < 20; x++) {
-            std::cout << om_objectManager->getObjectByLocals(x, y);
+            std::cout << objMan_objectManager->getObjectByLocals(x, y);
         }
         std::cout << "\n";
     }
@@ -103,16 +110,40 @@ void Game::HandleEvents() {
     }
     MouseController::MousePositionQuery(&i_cursorCoordinatesX, &i_cursorCoordinatesY);
     MouseController::MouseClickQuery(&b_selectButton);
+
+    if(Game::sdlEvent_event.type == SDL_KEYDOWN) {
+        int i_prevTileSize = Game::i_tileSize;
+        switch(Game::sdlEvent_event.key.keysym.sym ){
+            case SDLK_UP:
+                Game::i_tileSize += 8;
+                objMan_objectManager->Adjust(i_prevTileSize);
+                std::cout << "tile size is now equal to: " << Game::i_tileSize << std::endl;
+                b_changedThisCycle = true;
+                break;
+            case SDLK_DOWN:
+                Game::i_tileSize -= 8;
+                objMan_objectManager->Adjust(i_prevTileSize);
+                std::cout << "tile size is now equal to: " << Game::i_tileSize << std::endl;
+                b_changedThisCycle = true;
+                break;
+            case SDLK_c:
+                if(b_debug) b_debug = false;
+                else if(!b_debug) b_debug = true;
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 void Game::Update() {
     i_cnt++;
-    SFX::Update();
-    om_objectManager->Update();
+    sfxMan_sfxManager->Update();
+    if(!b_changedThisCycle) objMan_objectManager->Update();
     TextManager::Update();
 
-    TextManager::WriteMessage(textBox_mouseCoords, ("X: " + std::to_string(Game::i_cursorCoordinatesX/64) + " / Y: "
-        + std::to_string(Game::i_cursorCoordinatesY/64) + " C: " + std::to_string(b_selectButton)).c_str());
+    TextManager::WriteMessage(textBox_mouseCoords, ("X: " + std::to_string(Game::i_cursorCoordinatesX/Game::i_tileSize) + " / Y: "
+        + std::to_string(Game::i_cursorCoordinatesY/Game::i_tileSize) + " C: " + std::to_string(b_selectButton)).c_str());
     TextManager::WriteMessage(textBox_debug, "pinpoints: " + std::to_string(i_pinPoints) + "  "
                                 + "visualeffects: " + std::to_string(i_visualEffects) + "  "
                                 + "gameobjects: " + std::to_string(i_gameObjects) + "  "
@@ -123,13 +154,14 @@ void Game::Render() {
     SDL_RenderClear(sdlRen_renderer);
 
     m_map->RenderMap();
-    om_objectManager->Render();
-    SFX::Render();
+    objMan_objectManager->Render();
+    sfxMan_sfxManager->Render();
     m_map->RenderObscuringMap();
-    //om_objectManager->cl_layer->Render();
+    if(b_debug) objMan_objectManager->cl_layer->Render();
     TextManager::Render();
 
     SDL_RenderPresent(sdlRen_renderer);
+    b_changedThisCycle = false;
 }
 
 void Game::Clear() {

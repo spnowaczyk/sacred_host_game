@@ -5,13 +5,12 @@
 #include "VisualEffect.h"
 #include "Game.h"
 
-VisualEffect::VisualEffect() {
+VisualEffect::VisualEffect(SFXManager* sfxManager) : sfxMan_manager(sfxManager){
     b_markedToDeath = false;
     Game::i_visualEffects++;
 }
 
 VisualEffect::~VisualEffect() {
-    SDL_DestroyTexture(sdlTex_texture);
     Game::i_visualEffects--;
 }
 

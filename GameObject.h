@@ -9,11 +9,12 @@
 #include "string"
 
 class ObjectManager;
+class SFXManager;
 
 class GameObject {
 public:
-    GameObject(std::string name, const char* textureSheet, int width, int height, int xTile, int yTile,  ObjectManager* manager, std::string message);
-    GameObject(std::string name, const char* textureSheet, int width, int height, int xTile, int yTile,  ObjectManager* manager);
+    GameObject(std::string name, const char* textureSheet, int tilesWidth, int tilesHeight, int xTile, int yTile,
+               ObjectManager* objectManager, SFXManager* sfxManager, std::string message);
     virtual ~GameObject();
 
     virtual void Update();
@@ -26,6 +27,8 @@ public:
 
     int getIXTile() const;
     int getIYTile() const;
+
+    void Adjust(int previusTileSize);
 
 protected:
     std::string s_name;
@@ -40,15 +43,16 @@ protected:
     int i_enqueuedXTile;
     int i_enqueuedYTile;
 
-    int i_Width;
-    int i_Height;
+    int i_tilesWidth;
+    int i_tilesHeight;
 
     bool b_markedToDeath;
 
     SDL_Texture* sdlTex_objTexture;
     SDL_Rect sdlRect_srcRect, sdlRect_dstRect;
 
-    ObjectManager* om_manager;
+    ObjectManager* objMan_manager;
+    SFXManager* sfxMan_manager;
 };
 
 

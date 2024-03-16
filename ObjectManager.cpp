@@ -5,8 +5,9 @@
 #include "ObjectManager.h"
 #include "Game.h"
 
-ObjectManager::ObjectManager() {
+ObjectManager::ObjectManager(SFXManager* sfxManager) {
     this->cl_layer = new CollisionLayer();
+    this->sfxMan_manager = sfxManager;
 
     for(int y = 0; y < 12; y++) {
         for(int x = 0; x < 20; x++) {
@@ -21,7 +22,7 @@ ObjectManager::~ObjectManager() {
 
 GameObject* ObjectManager::CreateCharacter(std::string name, const char *textureSheet, int width, int height, int xTile,
                                            int yTile) {
-    GameObject* object = new CharacterGO(name, textureSheet, width, height, xTile, yTile, this);
+    GameObject* object = new CharacterGO(name, textureSheet, width, height, xTile, yTile, this, sfxMan_manager);
     goA_gameObjectsByLocals[yTile][xTile] = object;
     goV_gameObjectsGeneral.push_back(object);
     this->cl_layer->AddCollider(xTile, yTile);
@@ -29,14 +30,14 @@ GameObject* ObjectManager::CreateCharacter(std::string name, const char *texture
 }
 
 GameObject * ObjectManager::CreateObject(std::string name, const char *textureSheet, int width, int height, int xTile, int yTile, std::string message) {
-    GameObject* object = new GameObject(name, textureSheet, width, height, xTile, yTile, this, message);
+    GameObject* object = new GameObject(name, textureSheet, width, height, xTile, yTile, this, sfxMan_manager, message);
     goA_gameObjectsByLocals[yTile][xTile] = object;
     goV_gameObjectsGeneral.push_back(object);
     this->cl_layer->AddCollider(xTile, yTile);
     return object;
 }
 
-void ObjectManager::ChangeObjectLocals(int oldLocalX, int oldLocalY, int newLocalX, int newLocalY) {
+void ObjectManager::ChangeObjectLocalsAndColliders(int oldLocalX, int oldLocalY, int newLocalX, int newLocalY) {
     GameObject* object = goA_gameObjectsByLocals[oldLocalY][oldLocalX];
     goA_gameObjectsByLocals[oldLocalY][oldLocalX] = nullptr;
     goA_gameObjectsByLocals[newLocalY][newLocalX] = object;
@@ -75,6 +76,10 @@ void ObjectManager::Update() {
 
 void ObjectManager::Render() {
     for(auto i : goV_gameObjectsGeneral) i->Render();
+}
+
+void ObjectManager::Adjust(int previousTileSize) {
+    for(auto i : goV_gameObjectsGeneral) i->Adjust(previousTileSize);
 }
 
 

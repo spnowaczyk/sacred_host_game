@@ -25,27 +25,31 @@ void Map::LoadMap(int tileTexturesArray [12][20]) {
 }
 
 void Map::RenderMap() {
-    sdlRect_src.h = sdlRect_dst.h = 64;
-    sdlRect_src.w = sdlRect_dst.w = 64;
+    sdlRect_src.h = Game::i_srcTileSize;
+    sdlRect_dst.h = Game::i_tileSize;
+    sdlRect_src.w = Game::i_srcTileSize;
+    sdlRect_dst.w = Game::i_tileSize;
     for (int row = 0; row < 12; ++row) {
         for (int col = 0; col < 20; ++col) {
             int i_type = iA_tileTexturesMap[row][col];
-            this->sdlRect_dst.x = col*64;
-            this->sdlRect_dst.y = row*64;
+            this->sdlRect_dst.x = col*Game::i_tileSize;
+            this->sdlRect_dst.y = row*Game::i_tileSize;
             TextureManager::DrawTexture(*sdlTextureA_tiles[i_type], sdlRect_src, sdlRect_dst);
         }
     }
 }
 
 void Map::RenderObscuringMap() {
-    sdlRect_src.h = sdlRect_dst.h = 96;
-    sdlRect_src.w = sdlRect_dst.w = 64;
+    sdlRect_src.h = Game::i_srcTileSize * 1.5;
+    sdlRect_dst.h = Game::i_tileSize * 1.5;
+    sdlRect_src.w = Game::i_srcTileSize;
+    sdlRect_dst.w = Game::i_tileSize;
     for (int row = 0; row < 12; ++row) {
         for (int col = 0; col < 20; ++col) {
             int i_type = iA_tileTexturesMap[row][col];
             if(i_type == 0) {
-                this->sdlRect_dst.x = col*64;
-                this->sdlRect_dst.y = row*64-32;
+                this->sdlRect_dst.x = col*Game::i_tileSize;
+                this->sdlRect_dst.y = row*Game::i_tileSize - Game::i_tileSize * 0.5;
                 TextureManager::DrawTexture(*sdlTextureA_tiles[i_type], sdlRect_src, sdlRect_dst);
             }
         }

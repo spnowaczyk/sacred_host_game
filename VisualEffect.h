@@ -6,6 +6,7 @@
 #define SACRED_HOST_VISUALEFFECT_H
 
 #include "TextureManager.h"
+#include "SFXManager.h"
 
 class VisualEffect {
 public:
@@ -13,7 +14,7 @@ public:
     virtual void Render();
     bool IsMarkedToDeath();
 
-    VisualEffect();
+    VisualEffect(SFXManager *sfxManager);
     virtual ~VisualEffect();
 
 protected:
@@ -28,6 +29,8 @@ protected:
     SDL_Texture* sdlTex_texture;
     SDL_Rect sdlRect_srcRect;
     SDL_Rect sdlRect_dstRect;
+
+    SFXManager* sfxMan_manager;
 };
 
 
