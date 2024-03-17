@@ -5,10 +5,12 @@
 #include "CharacterGO.h"
 #include "Game.h"
 
+
 CharacterGO::CharacterGO(std::string name, const char *textureSheet, int tilesWidth, int tilesHeight, int xTile, int yTile,
                          ObjectManager* objectManager, SFXManager* sfxManager)
     : GameObject(name, textureSheet, tilesWidth, tilesHeight, xTile, yTile, objectManager, sfxManager, "") {
     textBox_position = TextManager::CreateTextBox(100, 700, "character coords");
+    textBox_velocity = TextManager::CreateTextBox(0, 0, "velocity");
 }
 
 CharacterGO::~CharacterGO() {
@@ -52,6 +54,8 @@ void CharacterGO::MakeStep(int speed) {
     else if(sdlRect_dstRect.x > i_desXTile * Game::i_tileSize) sdlRect_dstRect.x -= i_velocity;
     else if(sdlRect_dstRect.y < i_desYTile * Game::i_tileSize) sdlRect_dstRect.y += i_velocity;
     else if(sdlRect_dstRect.y > i_desYTile * Game::i_tileSize) sdlRect_dstRect.y -= i_velocity;
+
+    TextManager::WriteMessage(textBox_velocity, std::to_string(i_velocity) + "/ " + std::to_string(Game::i_tileSize));
 
 
     if(sdlRect_dstRect.y % Game::i_tileSize == 0 && sdlRect_dstRect.x % Game::i_tileSize == 0) {
