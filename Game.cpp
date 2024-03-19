@@ -5,14 +5,14 @@
 #include "Game.h"
 #include "string"
 
-bool b_debug = false;
-bool b_changedThisCycle = false;
+bool b_displayColliders = false;
+bool b_SizeChangedThisCycle = false;
 
 int i_cnt = 0;
 int Game::i_cursorCoordinatesX, Game::i_cursorCoordinatesY;
 bool Game::b_selectButton;
 
-int Game::i_tileSize = 80;
+int Game::i_tileSize = 64;
 int Game::i_srcTileSize = 64;
 SDL_Renderer* Game::sdlRen_renderer = nullptr;
 SDL_Event Game::sdlEvent_event;
@@ -81,6 +81,7 @@ void Game::Init(const char *title, int xpos, int ypos, int width, int height, bo
     sfxMan_sfxManager = new SFXManager();
     objMan_objectManager = new ObjectManager(sfxMan_sfxManager);
     objMan_objectManager->cl_layer->LoadColliders(m_map);
+
     objMan_objectManager->CreateCharacter("Seth", "../assets/Seth2.png", 1, 1, 2, 2);
     objMan_objectManager->CreateObject("Chest", "../assets/chest.png", 1, 1, 7, 7, "looks like an old, rusty chest");
 
@@ -88,15 +89,10 @@ void Game::Init(const char *title, int xpos, int ypos, int width, int height, bo
     Mix_Music* mixMusic_music = Mix_LoadMUS("../audio/enjoy_your_first_day_cadet.wav");
     //Mix_Chunk* mixChunk_sound = Mix_LoadWAV()
     Mix_PlayMusic(mixMusic_music, -1);
+
     textBox_mouseCoords = TextManager::CreateTextBox(1000, 700, "mouse coords");
     textBox_debug = TextManager::CreateTextBox(100, 100, "debug");
 
-    for(int y = 0; y < 12; y++) {
-        for(int x = 0; x < 20; x++) {
-            std::cout << objMan_objectManager->getObjectByLocals(x, y);
-        }
-        std::cout << "\n";
-    }
 }
 
 void Game::HandleEvents() {
@@ -114,21 +110,25 @@ void Game::HandleEvents() {
     if(Game::sdlEvent_event.type == SDL_KEYDOWN) {
         int i_prevTileSize = Game::i_tileSize;
         switch(Game::sdlEvent_event.key.keysym.sym ){
-            case SDLK_UP:
-                Game::i_tileSize += 8;
-                objMan_objectManager->Adjust(i_prevTileSize);
-                std::cout << "tile size is now equal to: " << Game::i_tileSize << std::endl;
-                b_changedThisCycle = true;
+            case SDLK_z:
+                if(Game::i_tileSize < 96) {
+                    Game::i_tileSize += 16;
+                    objMan_objectManager->Adjust(i_prevTileSize);
+                    std::cout << "tile size is now equal to: " << Game::i_tileSize << std::endl;
+                    b_SizeChangedThisCycle = true;
+                }
                 break;
-            case SDLK_DOWN:
-                Game::i_tileSize -= 8;
-                objMan_objectManager->Adjust(i_prevTileSize);
-                std::cout << "tile size is now equal to: " << Game::i_tileSize << std::endl;
-                b_changedThisCycle = true;
+            case SDLK_x:
+                if(Game::i_tileSize > 32) {
+                    Game::i_tileSize -= 16;
+                    objMan_objectManager->Adjust(i_prevTileSize);
+                    std::cout << "tile size is now equal to: " << Game::i_tileSize << std::endl;
+                    b_SizeChangedThisCycle = true;
+                }
                 break;
             case SDLK_c:
-                if(b_debug) b_debug = false;
-                else if(!b_debug) b_debug = true;
+                if(b_displayColliders) b_displayColliders = false;
+                else if(!b_displayColliders) b_displayColliders = true;
                 break;
             default:
                 break;
@@ -137,9 +137,8 @@ void Game::HandleEvents() {
 }
 
 void Game::Update() {
-    i_cnt++;
     sfxMan_sfxManager->Update();
-    if(!b_changedThisCycle) objMan_objectManager->Update();
+    if(!b_SizeChangedThisCycle) objMan_objectManager->Update();
     TextManager::Update();
 
     TextManager::WriteMessage(textBox_mouseCoords, ("X: " + std::to_string(Game::i_cursorCoordinatesX/Game::i_tileSize) + " / Y: "
@@ -148,6 +147,7 @@ void Game::Update() {
                                 + "visualeffects: " + std::to_string(i_visualEffects) + "  "
                                 + "gameobjects: " + std::to_string(i_gameObjects) + "  "
                                 + "textboxes: " + std::to_string(i_textBoxes));
+    b_SizeChangedThisCycle = false;
 }
 
 void Game::Render() {
@@ -157,11 +157,10 @@ void Game::Render() {
     objMan_objectManager->Render();
     sfxMan_sfxManager->Render();
     m_map->RenderObscuringMap();
-    if(b_debug) objMan_objectManager->cl_layer->Render();
+    if(b_displayColliders) objMan_objectManager->cl_layer->Render();
     TextManager::Render();
 
     SDL_RenderPresent(sdlRen_renderer);
-    b_changedThisCycle = false;
 }
 
 void Game::Clear() {

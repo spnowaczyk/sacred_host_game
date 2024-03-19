@@ -19,11 +19,7 @@ CharacterGO::~CharacterGO() {
 
 void CharacterGO::Update() {
     SelectDestination();
-    MakeStep(2);
-    /*if(i_xTile == 10 && i_yTile == 10){
-        TextManager::DestroyTextBox(textBox_position);
-        objMan_manager->DestroyObject(this);
-    }*/
+    MakeStep(1);
     TextManager::WriteMessage(textBox_position, "X: " + std::to_string(i_xTile) + " / Y: " + std::to_string(i_yTile));
 }
 
@@ -49,7 +45,7 @@ void CharacterGO::SelectDestination() {
 }
 
 void CharacterGO::MakeStep(int speed) {
-    int i_velocity = ((float)speed / 4.0f) * ((float)Game::i_tileSize / 8.0f);
+    int i_velocity = ((float)speed / 4) * (Game::i_tileSize / 8);
     if(sdlRect_dstRect.x < i_desXTile * Game::i_tileSize) sdlRect_dstRect.x += i_velocity;
     else if(sdlRect_dstRect.x > i_desXTile * Game::i_tileSize) sdlRect_dstRect.x -= i_velocity;
     else if(sdlRect_dstRect.y < i_desYTile * Game::i_tileSize) sdlRect_dstRect.y += i_velocity;
