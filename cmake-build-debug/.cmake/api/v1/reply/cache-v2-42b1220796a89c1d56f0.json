@@ -15,7 +15,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/addr2line.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/addr2line.exe"
 		},
 		{
 			"name" : "CMAKE_AR",
@@ -31,7 +31,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/ar.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/ar.exe"
 		},
 		{
 			"name" : "CMAKE_BUILD_TYPE",
@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Dev/sacred_host/cmake-build-debug"
+			"value" : "c:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -79,7 +79,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "26"
+			"value" : "27"
 		},
 		{
 			"name" : "CMAKE_CACHE_PATCH_VERSION",
@@ -91,7 +91,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "4"
+			"value" : "8"
 		},
 		{
 			"name" : "CMAKE_CODEBLOCKS_COMPILER_ID",
@@ -151,7 +151,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/cmake/win/x64/bin/cmake.exe"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -163,7 +163,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/bin/cpack.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/cmake/win/x64/bin/cpack.exe"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -175,7 +175,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/bin/ctest.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/cmake/win/x64/bin/ctest.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER",
@@ -191,7 +191,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/g++.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/g++.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_AR",
@@ -207,7 +207,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/gcc-ar.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/gcc-ar.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_RANLIB",
@@ -223,7 +223,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/gcc-ranlib.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/gcc-ranlib.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS",
@@ -335,7 +335,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/gcc.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/gcc.exe"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER_AR",
@@ -351,7 +351,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/gcc-ar.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/gcc-ar.exe"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER_RANLIB",
@@ -367,7 +367,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/gcc-ranlib.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/gcc-ranlib.exe"
 		},
 		{
 			"name" : "CMAKE_C_FLAGS",
@@ -479,7 +479,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/dlltool.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/dlltool.exe"
 		},
 		{
 			"name" : "CMAKE_EXECUTABLE_FORMAT",
@@ -607,7 +607,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++;C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32;C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward;C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include;C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include;C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed;C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++;C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32;C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward;C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include;C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include;C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed;C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"
 		},
 		{
 			"name" : "CMAKE_EXTRA_GENERATOR_C_SYSTEM_DEFINED_MACROS",
@@ -631,7 +631,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include;C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include;C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed;C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include;C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include;C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed;C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"
 		},
 		{
 			"name" : "CMAKE_FIND_PACKAGE_REDIRECTS_DIR",
@@ -643,7 +643,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Dev/sacred_host/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -727,7 +727,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Dev/sacred_host"
+			"value" : "C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -755,7 +755,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/ld.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/ld.exe"
 		},
 		{
 			"name" : "CMAKE_MAKE_PROGRAM",
@@ -771,7 +771,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe"
+			"value" : "C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -867,7 +867,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/nm.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/nm.exe"
 		},
 		{
 			"name" : "CMAKE_NUMBER_OF_MAKEFILES",
@@ -895,7 +895,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/objcopy.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/objcopy.exe"
 		},
 		{
 			"name" : "CMAKE_OBJDUMP",
@@ -911,7 +911,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/objdump.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/objdump.exe"
 		},
 		{
 			"name" : "CMAKE_PLATFORM_INFO_INITIALIZED",
@@ -975,7 +975,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/ranlib.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/ranlib.exe"
 		},
 		{
 			"name" : "CMAKE_RC_COMPILER",
@@ -991,7 +991,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/windres.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/windres.exe"
 		},
 		{
 			"name" : "CMAKE_RC_COMPILER_WORKS",
@@ -1099,7 +1099,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/readelf.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/readelf.exe"
 		},
 		{
 			"name" : "CMAKE_ROOT",
@@ -1111,7 +1111,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/cmake/win/x64/share/cmake-3.27"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1319,7 +1319,23 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/strip.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.1.3/bin/mingw/bin/strip.exe"
+		},
+		{
+			"name" : "CMAKE_TAPI",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a program."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "CMAKE_TAPI-NOTFOUND"
 		},
 		{
 			"name" : "CMAKE_VERBOSE_MAKEFILE",
@@ -1347,7 +1363,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "[mingw32;-mwindows;C:/Dev/sacred_host/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Dev/sacred_host/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2.dll.a][C:/Dev/sacred_host/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/include/SDL2][v()]"
+			"value" : "[mingw32;-mwindows;C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2.dll.a][C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/include/SDL2][v()]"
 		},
 		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_SDL2_image",
@@ -1359,7 +1375,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "[C:/Dev/sacred_host/SDL2_libs/SDL2_image-2.8.2/x86_64-w64-mingw32/lib/libSDL2_image.dll.a][C:/Dev/sacred_host/SDL2_libs/SDL2_image-2.8.2/x86_64-w64-mingw32/include/SDL2][v2.8.2()]"
+			"value" : "[C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2_image-2.8.2/x86_64-w64-mingw32/lib/libSDL2_image.dll.a][C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2_image-2.8.2/x86_64-w64-mingw32/include/SDL2][v2.8.2()]"
 		},
 		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_SDL2_mixer",
@@ -1371,7 +1387,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "[C:/Dev/sacred_host/SDL2_libs/SDL2_mixer-2.8.0/x86_64-w64-mingw32/lib/libSDL2_mixer.dll.a][C:/Dev/sacred_host/SDL2_libs/SDL2_mixer-2.8.0/x86_64-w64-mingw32/include/SDL2][v2.8.0()]"
+			"value" : "[C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2_mixer-2.8.0/x86_64-w64-mingw32/lib/libSDL2_mixer.dll.a][C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2_mixer-2.8.0/x86_64-w64-mingw32/include/SDL2][v2.8.0()]"
 		},
 		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_SDL2_ttf",
@@ -1383,7 +1399,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "[C:/Dev/sacred_host/SDL2_libs/SDL2_ttf-2.22.0/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a][C:/Dev/sacred_host/SDL2_libs/SDL2_ttf-2.22.0/x86_64-w64-mingw32/include/SDL2][v2.22.0()]"
+			"value" : "[C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2_ttf-2.22.0/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a][C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2_ttf-2.22.0/x86_64-w64-mingw32/include/SDL2][v2.22.0()]"
 		},
 		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_Threads",
@@ -1419,7 +1435,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Dev/sacred_host/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2main.a"
+			"value" : "C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2main.a"
 		},
 		{
 			"name" : "SDL2_IMAGE_INCLUDE_DIR",
@@ -1435,7 +1451,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Dev/sacred_host/SDL2_libs/SDL2_image-2.8.2/x86_64-w64-mingw32/include/SDL2"
+			"value" : "C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2_image-2.8.2/x86_64-w64-mingw32/include/SDL2"
 		},
 		{
 			"name" : "SDL2_IMAGE_LIBRARY",
@@ -1451,7 +1467,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Dev/sacred_host/SDL2_libs/SDL2_image-2.8.2/x86_64-w64-mingw32/lib/libSDL2_image.dll.a"
+			"value" : "C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2_image-2.8.2/x86_64-w64-mingw32/lib/libSDL2_image.dll.a"
 		},
 		{
 			"name" : "SDL2_INCLUDE_DIR",
@@ -1463,7 +1479,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Dev/sacred_host/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/include/SDL2"
+			"value" : "C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/include/SDL2"
 		},
 		{
 			"name" : "SDL2_LIBRARY",
@@ -1475,7 +1491,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "mingw32;-mwindows;C:/Dev/sacred_host/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Dev/sacred_host/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2.dll.a"
+			"value" : "mingw32;-mwindows;C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2.dll.a"
 		},
 		{
 			"name" : "SDL2_LIBRARY_TEMP",
@@ -1487,7 +1503,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "mingw32;-mwindows;C:/Dev/sacred_host/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/Dev/sacred_host/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/Dev/sacred_host/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/Dev/sacred_host/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/Dev/sacred_host/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/Dev/sacred_host/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Dev/sacred_host/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2.dll.a"
+			"value" : "mingw32;-mwindows;C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2.dll.a"
 		},
 		{
 			"name" : "SDL2_MIXER_INCLUDE_DIR",
@@ -1503,7 +1519,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Dev/sacred_host/SDL2_libs/SDL2_mixer-2.8.0/x86_64-w64-mingw32/include/SDL2"
+			"value" : "C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2_mixer-2.8.0/x86_64-w64-mingw32/include/SDL2"
 		},
 		{
 			"name" : "SDL2_MIXER_LIBRARY",
@@ -1519,7 +1535,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Dev/sacred_host/SDL2_libs/SDL2_mixer-2.8.0/x86_64-w64-mingw32/lib/libSDL2_mixer.dll.a"
+			"value" : "C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2_mixer-2.8.0/x86_64-w64-mingw32/lib/libSDL2_mixer.dll.a"
 		},
 		{
 			"name" : "SDL2_MIXER_NO_DEFAULT_PATH",
@@ -1567,7 +1583,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Dev/sacred_host/SDL2_libs/SDL2_ttf-2.22.0/x86_64-w64-mingw32/include/SDL2"
+			"value" : "C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2_ttf-2.22.0/x86_64-w64-mingw32/include/SDL2"
 		},
 		{
 			"name" : "SDL2_TTF_LIBRARY",
@@ -1583,7 +1599,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Dev/sacred_host/SDL2_libs/SDL2_ttf-2.22.0/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a"
+			"value" : "C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/SDL2_libs/SDL2_ttf-2.22.0/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a"
 		},
 		{
 			"name" : "SDL2_TTF_NO_DEFAULT_PATH",
@@ -1639,7 +1655,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Dev/sacred_host/cmake-build-debug"
+			"value" : "C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game/cmake-build-debug"
 		},
 		{
 			"name" : "sacred_host_IS_TOP_LEVEL",
@@ -1663,7 +1679,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Dev/sacred_host"
+			"value" : "C:/Users/s.nowaczyk/Documents/GitHub/sacred_host_game"
 		}
 	],
 	"kind" : "cache",
