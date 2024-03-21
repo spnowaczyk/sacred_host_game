@@ -86,7 +86,7 @@ void Game::Init(const char *title, int xpos, int ypos, int width, int height, bo
     objMan_objectManager->CreateObject("Chest", "../assets/chest.png", 1, 1, 7, 7, "looks like an old, rusty chest");
 
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
-    Mix_Music* mixMusic_music = Mix_LoadMUS("../audio/enjoy_your_first_day_cadet.wav");
+    Mix_Music* mixMusic_music = Mix_LoadMUS("../audio/night_watch.wav");
     //Mix_Chunk* mixChunk_sound = Mix_LoadWAV()
     Mix_PlayMusic(mixMusic_music, -1);
 
