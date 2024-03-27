@@ -26,6 +26,7 @@ public:
     SDL_Texture* GetTexture(int textureID);
 private:
     std::vector<VisualEffect*> Vvf_visualEffects;
+
     SDL_Texture* AsdlTex_textures[SFXAMOUNT];
 };
 

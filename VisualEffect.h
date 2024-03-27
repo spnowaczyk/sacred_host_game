@@ -13,6 +13,7 @@ public:
     virtual void Update();
     virtual void Render();
     bool IsMarkedToDeath();
+    void SetCnt(int cnt);
 
     VisualEffect(SFXManager *sfxManager);
     virtual ~VisualEffect();

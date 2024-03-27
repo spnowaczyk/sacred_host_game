@@ -26,3 +26,7 @@ bool VisualEffect::IsMarkedToDeath() {
     return b_markedToDeath;
 }
 
+void VisualEffect::SetCnt(int cnt) {
+    this->i_cnt = cnt;
+}
+
