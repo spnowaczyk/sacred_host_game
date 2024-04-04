@@ -45,7 +45,8 @@ void ObjectManager::ChangeObjectLocalsAndColliders(int oldLocalX, int oldLocalY,
 }
 
 GameObject *ObjectManager::getObjectByLocals(int localX, int localY) {
-    return goA_gameObjectsByLocals[localY][localX];
+    if(localX < 20 && localY < 12) return goA_gameObjectsByLocals[localY][localX]; // CHANGE THIS SHIT
+    else return nullptr;                                                           // THIS IS FUCKING IMMORAL
 }
 
 void ObjectManager::DeleteObjectFromLocals(int localX, int localY) {

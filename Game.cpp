@@ -119,7 +119,7 @@ void Game::HandleEvents() {
                 }
                 break;
             case SDLK_x:
-                if(Game::i_tileSize > 32) {
+                if(Game::i_tileSize > 16) {
                     Game::i_tileSize -= 16;
                     objMan_objectManager->Adjust(i_prevTileSize);
                     std::cout << "tile size is now equal to: " << Game::i_tileSize << std::endl;
