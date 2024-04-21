@@ -34,9 +34,7 @@ void CharacterGO::SelectDestination() {
         int cursorTileY = Game::i_cursorCoordinatesY/Game::i_tileSize;
         if(objMan_manager->getObjectByLocals(cursorTileX, cursorTileY) == nullptr) {
             Diip_WalkPath.clear();
-            this->objMan_manager->cl_layer->RemoveCollider(i_xTile, i_yTile);
             Diip_WalkPath = this->objMan_manager->cl_layer->findWay(i_desXTile, i_desYTile, cursorTileX, cursorTileY);
-            this->objMan_manager->cl_layer->AddCollider(i_xTile, i_yTile);
             sfxMan_manager->DrawPinpoint();
         } else if (abs(cursorTileX - getIXTile()) <= 1 && abs(cursorTileY - getIYTile()) <= 1){
             objMan_manager->getObjectByLocals(cursorTileX, cursorTileY)->Interact();

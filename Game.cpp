@@ -13,7 +13,10 @@ int Game::i_cursorCoordinatesX, Game::i_cursorCoordinatesY;
 bool Game::b_selectButton;
 
 int Game::i_tileSize = 64;
-int Game::i_srcTileSize = 64;
+int Game::i_srcTileSize = 32;
+int Game::i_tilesX = 20;
+int Game::i_tilesY = 12;
+
 SDL_Renderer* Game::sdlRen_renderer = nullptr;
 SDL_Event Game::sdlEvent_event;
 ObjectManager* objMan_objectManager;
@@ -77,13 +80,14 @@ void Game::Init(const char *title, int xpos, int ypos, int width, int height, bo
     Game::i_textBoxes = 0;
 
     m_map = new Map();
-    m_map->RandomMap();
+    m_map->LoadTileSet("../assets/tileset.png");
+    m_map->LoadMap("../assets/map.txt", Game::i_tilesX, Game::i_tilesY);
     sfxMan_sfxManager = new SFXManager();
     objMan_objectManager = new ObjectManager(sfxMan_sfxManager);
-    objMan_objectManager->cl_layer->LoadColliders(m_map);
+    objMan_objectManager->cl_layer->LoadColliders("../assets/colliders.txt");
 
-    objMan_objectManager->CreateCharacter("Seth", "../assets/Seth2.png", 1, 1, 2, 2);
-    objMan_objectManager->CreateObject("Chest", "../assets/chest.png", 1, 1, 7, 7, "looks like an old, rusty chest");
+    objMan_objectManager->CreateCharacter("Seth", "../assets/Seth32.png", 1, 1, 7, 1);
+    objMan_objectManager->CreateObject("Chest", "../assets/chest2.png", 1, 1, 6, 7, "looks like an old, rusty chest");
 
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
     Mix_Music* mixMusic_music = Mix_LoadMUS("../audio/night_watch.wav");
@@ -156,7 +160,7 @@ void Game::Render() {
     m_map->RenderMap();
     objMan_objectManager->Render();
     sfxMan_sfxManager->Render();
-    m_map->RenderObscuringMap();
+    //m_map->RenderObscuringMap();
     if(b_displayColliders) objMan_objectManager->cl_layer->Render();
     TextManager::Render();
 

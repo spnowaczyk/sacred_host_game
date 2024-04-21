@@ -16,8 +16,8 @@ class ObjectManager {
 public:
     ObjectManager(SFXManager* sfxManager);
     ~ObjectManager();
-    GameObject* CreateCharacter(std::string name, const char* textureSheet, int width = 64, int height = 64, int xTile = 0, int yTile = 0);
-    GameObject* CreateObject(std::string name, const char *textureSheet, int width = 64, int height = 64, int xTile = 0, int yTile = 0, std::string message = "");
+    GameObject* CreateCharacter(std::string name, const char* textureSheet, int width = 1, int height = 1, int xTile = 0, int yTile = 0);
+    GameObject* CreateObject(std::string name, const char *textureSheet, int width = 1, int height = 1, int xTile = 0, int yTile = 0, std::string message = "");
     void ChangeObjectLocalsAndColliders(int oldLocalX, int oldLocalY, int newLocalX, int newLocalY);
     GameObject* getObjectByLocals(int localX, int LocalY);
     void DeleteObjectFromLocals(int LocalX, int LocalY);

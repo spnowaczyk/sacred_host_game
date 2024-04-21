@@ -5,6 +5,8 @@
 #ifndef CLION_DEBUG_LOG_TXT_COLLISIONLAYER_H
 #define CLION_DEBUG_LOG_TXT_COLLISIONLAYER_H
 
+#include <string>
+#include <vector>
 #include "SDL.h"
 #include "deque"
 
@@ -15,26 +17,25 @@ public:
     CollisionLayer();
     ~CollisionLayer();
 
-    void LoadColliders(Map* map);
-    void RandomColliders();
+    void LoadColliders(std::string path);
     void RemoveCollider(int localX, int localY);
     void AddCollider(int localX, int localY);
     void MoveCollider(int oldLocalX, int oldLocalY, int newLocalX, int newLocalY);
 
-    bool DetectCollision(int localX, int localY);
+    bool DetectCollision(int direction, int x, int y);
     std::deque<std::pair<int, int>> findWay(int startX, int startY, int finishX, int finishY);
 
     void Render();
 
 private:
-    bool bA_colliders[12][20];
+    std::vector<bool>* bV_colliders;
 
     SDL_Texture* sdlTex_texture;
     SDL_Rect sdlRect_srcRect;
     SDL_Rect sdlRect_dstRect;
 
     int i_width;
-    int i_length;
+    int i_height;
 };
 
 

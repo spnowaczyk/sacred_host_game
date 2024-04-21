@@ -44,6 +44,7 @@ public:
 
     static int i_tileSize;
     static int i_srcTileSize;
+    static int i_tilesX, i_tilesY;
 
     static int i_textBoxes, i_pinPoints, i_visualEffects, i_gameObjects;
 

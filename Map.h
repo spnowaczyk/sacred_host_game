@@ -15,9 +15,8 @@ public:
     Map();
     ~Map();
 
-    void RandomMap();
-    void LoadMap(int tileTexturesArray [12][20]);
-    bool IsWall(int tileX, int tileY);
+    void LoadTileSet(std::string path);
+    void LoadMap(std::string path, int sizeX, int sizeY);
     void RenderMap();
     void RenderObscuringMap();
 
@@ -26,19 +25,8 @@ public:
 
 private:
     SDL_Rect sdlRect_src, sdlRect_dst;
-
-    SDL_Texture* sdlTexture_concrete;
-    SDL_Texture* sdlTexture_sand;
-    SDL_Texture* sdlTexture_grass;
-
-    std::vector<SDL_Texture**> sdlTextureA_tiles {
-        &sdlTexture_concrete,
-        &sdlTexture_sand,
-        &sdlTexture_grass
-    };
-
-    int iA_tileTexturesMap[12][20];
-
+    SDL_Texture* sdlTexture_tileset;
+    std::vector<int> iV_tiles;
 };
 
 
