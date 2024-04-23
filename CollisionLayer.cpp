@@ -18,6 +18,7 @@ CollisionLayer::CollisionLayer() {
     i_width = Game::i_tilesX;
 
     bV_colliders = new std::vector<bool>;
+    bV_colliders_template = new std::vector<bool>;
 }
 CollisionLayer::~CollisionLayer() {
     SDL_DestroyTexture(sdlTex_texture);
@@ -45,40 +46,36 @@ void CollisionLayer::LoadColliders(std::string path) {
         }
     }
     fs_collidersFile.close();
+
+    if(bV_colliders && bV_colliders_template) {
+        *bV_colliders_template = *bV_colliders;
+    }
 }
 
-void CollisionLayer::RemoveCollider(int localX, int localY) {
-}
-
-void CollisionLayer::AddCollider(int localX, int localY) {
-}
-
-void CollisionLayer::MoveCollider(int oldLocalX, int oldLocalY, int newLocalX, int newLocalY) {
-
-}
-
-bool CollisionLayer::DetectCollision(int direction, int x, int y) {
-    int topCollider = (2 * i_height + 1) * x + (2 * y);
+int CollisionLayer::GetColliderId(int direction, int localX, int localY) {
+    int topCollider = (2 * i_height + 1) * localX + (2 * localY);
     switch (direction) {
         case 0:
-            return (*bV_colliders)[topCollider];
+            return topCollider;
             break;
         case 1:
-            std::cout << "collider id: " << topCollider + 2 + (2 * i_height) << "| if \"1\" collider detected: "
-                      << (*bV_colliders)[topCollider + 2 + (2 * i_height)] << std::endl;
-            return (*bV_colliders)[topCollider + 2 + (2 * i_height)];
+            return topCollider + 2 + (2 * i_height);
             break;
         case 2:
-            std::cout << "collider id: " << topCollider + 2 << "| if \"1\" collider detected: "
-                      << (*bV_colliders)[topCollider + 2] << std::endl;
-            return (*bV_colliders)[topCollider + 2];
+            return topCollider + 2;
             break;
         case 3:
-            std::cout << "collider id: " << topCollider + 1 << "| if \"1\" collider detected: "
-                      << (*bV_colliders)[topCollider + 1] << std::endl;
-            return (*bV_colliders)[topCollider + 1];
+            return topCollider + 1;
+            break;
+        default:
+            return -1;
             break;
     }
+}
+
+
+bool CollisionLayer::DetectCollision(int direction, int localX, int localY) {
+    return (*bV_colliders)[GetColliderId(direction, localX, localY)];
 }
 
 std::deque<std::pair<int, int>> CollisionLayer::findWay(int startX, int startY, int finishX, int finishY) {
@@ -90,8 +87,6 @@ std::deque<std::pair<int, int>> CollisionLayer::findWay(int startX, int startY, 
 
     gen.push_back(new Step(startX, startY, nullptr));
     generations.push_back(gen);
-
-    int steps = 0;
 
     while (!generations.back().empty()) {
         std::cout << "new cycle" << std::endl;
@@ -168,3 +163,5 @@ std::deque<std::pair<int, int>> CollisionLayer::findWay(int startX, int startY, 
 void CollisionLayer::Render() {
 
 }
+
+

@@ -11,6 +11,7 @@ bool b_SizeChangedThisCycle = false;
 int i_cnt = 0;
 int Game::i_cursorCoordinatesX, Game::i_cursorCoordinatesY;
 bool Game::b_selectButton;
+SDL_Event Game::sdlEvent_event;
 
 int Game::i_tileSize = 64;
 int Game::i_srcTileSize = 32;
@@ -18,11 +19,10 @@ int Game::i_tilesX = 20;
 int Game::i_tilesY = 12;
 
 SDL_Renderer* Game::sdlRen_renderer = nullptr;
-SDL_Event Game::sdlEvent_event;
-ObjectManager* objMan_objectManager;
-SFXManager* sfxMan_sfxManager;
-CharacterGO* go_player;
-Map* m_map;
+ObjectManager* objMan_objectManager = nullptr;
+SFXManager* sfxMan_sfxManager = nullptr;
+CharacterGO* go_player = nullptr;
+Map* m_map = nullptr;
 
 
 TextBox* textBox_mouseCoords;

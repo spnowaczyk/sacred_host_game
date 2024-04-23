@@ -62,7 +62,7 @@ void CharacterGO::MakeStep(int speed) {
         i_yTile = sdlRect_dstRect.y / Game::i_tileSize;
         i_xTile = sdlRect_dstRect.x / Game::i_tileSize;
 
-        objMan_manager->ChangeObjectLocalsAndColliders(i_prevXTile, i_prevYTile, i_xTile, i_yTile);
+        objMan_manager->ChangeObjectLocals(i_prevXTile, i_prevYTile, i_xTile, i_yTile);
 
         if(!Diip_WalkPath.empty()) {
             Move(Diip_WalkPath.front().first, Diip_WalkPath.front().second);

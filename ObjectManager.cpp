@@ -25,7 +25,7 @@ GameObject* ObjectManager::CreateCharacter(std::string name, const char *texture
     GameObject* object = new CharacterGO(name, textureSheet, width, height, xTile, yTile, this, sfxMan_manager);
     goA_gameObjectsByLocals[yTile][xTile] = object;
     goV_gameObjectsGeneral.push_back(object);
-    this->cl_layer->AddCollider(xTile, yTile);
+    //here add collider
     return object;
 }
 
@@ -33,32 +33,32 @@ GameObject * ObjectManager::CreateObject(std::string name, const char *textureSh
     GameObject* object = new GameObject(name, textureSheet, width, height, xTile, yTile, this, sfxMan_manager, message);
     goA_gameObjectsByLocals[yTile][xTile] = object;
     goV_gameObjectsGeneral.push_back(object);
-    this->cl_layer->AddCollider(xTile, yTile);
+    //here add collider
     return object;
 }
 
-void ObjectManager::ChangeObjectLocalsAndColliders(int oldLocalX, int oldLocalY, int newLocalX, int newLocalY) {
+void ObjectManager::ChangeObjectLocals(int oldLocalX, int oldLocalY, int newLocalX, int newLocalY) {
     GameObject* object = goA_gameObjectsByLocals[oldLocalY][oldLocalX];
     goA_gameObjectsByLocals[oldLocalY][oldLocalX] = nullptr;
     goA_gameObjectsByLocals[newLocalY][newLocalX] = object;
-    this->cl_layer->MoveCollider(oldLocalX, oldLocalY, newLocalX, newLocalY);
+    //here change collider
 }
 
 GameObject *ObjectManager::getObjectByLocals(int localX, int localY) {
-    if(localX < 20 && localY < 12) return goA_gameObjectsByLocals[localY][localX]; // CHANGE THIS SHIT
+    if(localX < Game::i_tilesX && localY < Game::i_tilesY) return goA_gameObjectsByLocals[localY][localX]; // CHANGE THIS SHIT
     else return nullptr;                                                           // THIS IS FUCKING IMMORAL
 }
 
 void ObjectManager::DeleteObjectFromLocals(int localX, int localY) {
     goA_gameObjectsByLocals[localY][localX];
-    this->cl_layer->RemoveCollider(localX, localY);
+    //here delete collider
 }
 
 void ObjectManager::DestroyObject(GameObject *object) {
     if(goA_gameObjectsByLocals[object->getIYTile()][object->getIXTile()] == object){
         goA_gameObjectsByLocals[object->getIYTile()][object->getIXTile()] = nullptr;
     }
-    this->cl_layer->RemoveCollider(object->getIXTile(), object->getIYTile());
+    //here delete collider
     object->MarkToDeath();
 }
 

@@ -18,17 +18,17 @@ public:
     ~CollisionLayer();
 
     void LoadColliders(std::string path);
-    void RemoveCollider(int localX, int localY);
-    void AddCollider(int localX, int localY);
-    void MoveCollider(int oldLocalX, int oldLocalY, int newLocalX, int newLocalY);
 
-    bool DetectCollision(int direction, int x, int y);
+    int GetColliderId(int direction, int localX, int localY);
+
+    bool DetectCollision(int direction, int localX, int localY);
     std::deque<std::pair<int, int>> findWay(int startX, int startY, int finishX, int finishY);
 
     void Render();
 
 private:
     std::vector<bool>* bV_colliders;
+    std::vector<bool>* bV_colliders_template;
 
     SDL_Texture* sdlTex_texture;
     SDL_Rect sdlRect_srcRect;
