@@ -8,11 +8,14 @@
 
 CollisionLayer::CollisionLayer() {
     sdlRect_srcRect.x = sdlRect_srcRect.y = 0;
-    sdlRect_srcRect.w = sdlRect_srcRect.h = Game::i_tileSize;
+    sdlRect_srcRect.w = i_walliderTexX;
+    sdlRect_srcRect.h = i_walliderTexY;
+    sdlRect_dstRectHorizontal.w = Game::i_tileSize;
+    sdlRect_dstRectHorizontal.h = i_walliderTexY;
+    sdlRect_dstRectVertical.w = i_walliderTexX;
+    sdlRect_dstRectVertical.h = Game::i_tileSize;
 
-    sdlRect_dstRect.w = sdlRect_dstRect.h = Game::i_tileSize;
-
-    sdlTex_texture = TextureManager::LoadTexture("../assets/collider.png");
+    sdlTex_texture = TextureManager::LoadTexture("../assets/wallider.png");
 
     i_height = Game::i_tilesY;
     i_width = Game::i_tilesX;
@@ -161,7 +164,15 @@ std::deque<std::pair<int, int>> CollisionLayer::findWay(int startX, int startY, 
     return res;}
 
 void CollisionLayer::Render() {
-
+    for (int y = 0; y < Game::i_tilesY; ++y) {
+        for (int x = 0; x < Game::i_tilesX; ++x) {
+            if((*bV_colliders)[GetColliderId(0, x, y)]) {
+                sdlRect_dstRectHorizontal.y = y * Game::i_tileSize - (i_walliderTexY / 2);
+                sdlRect_dstRectHorizontal.x = x * Game::i_tileSize;
+                TextureManager::DrawTexture(sdlTex_texture, sdlRect_srcRect, sdlRect_dstRectHorizontal);
+            }
+        }
+    }
 }
 
 

@@ -32,10 +32,14 @@ private:
 
     SDL_Texture* sdlTex_texture;
     SDL_Rect sdlRect_srcRect;
-    SDL_Rect sdlRect_dstRect;
+    SDL_Rect sdlRect_dstRectHorizontal;
+    SDL_Rect sdlRect_dstRectVertical;
 
     int i_width;
     int i_height;
+
+    int i_walliderTexX = 4;
+    int i_walliderTexY = 4;
 };
 
 
