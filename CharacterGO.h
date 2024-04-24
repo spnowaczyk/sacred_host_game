@@ -26,6 +26,7 @@ private:
     TextBox* textBox_position;
     TextBox* textBox_velocity;
     std::deque<std::pair<int, int>> Diip_WalkPath;
+    bool b_inMotion;
 };
 
 

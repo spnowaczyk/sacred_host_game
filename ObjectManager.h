@@ -16,10 +16,13 @@ class ObjectManager {
 public:
     ObjectManager(SFXManager* sfxManager);
     ~ObjectManager();
+    void SetCollidersOccupied(int localX, int localY);
+    void FixSharedColliders(int localX, int localY);
+    void SetCollidersUnoccupied(int localX, int localY);
     GameObject* CreateCharacter(std::string name, const char* textureSheet, int width = 1, int height = 1, int xTile = 0, int yTile = 0);
     GameObject* CreateObject(std::string name, const char *textureSheet, int width = 1, int height = 1, int xTile = 0, int yTile = 0, std::string message = "");
     void ChangeObjectLocals(int oldLocalX, int oldLocalY, int newLocalX, int newLocalY);
-    GameObject* getObjectByLocals(int localX, int LocalY);
+    GameObject* GetObjectByLocals(int localX, int LocalY);
     void DeleteObjectFromLocals(int LocalX, int LocalY);
     void DestroyObject(GameObject* object);
     void Update();

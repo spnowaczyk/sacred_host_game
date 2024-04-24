@@ -10,7 +10,7 @@ Pinpoint::Pinpoint(int tileX, int tileY, SFXManager* sfxManager) : VisualEffect(
     i_tileY = tileY;
     i_tilesHeight = 1;
     i_tilesWidth = 1;
-    i_cnt = 60;
+    i_cnt = 120;
 
     sdlTex_texture = TextureManager::LoadTexture("../assets/pinpoint2.png");
 

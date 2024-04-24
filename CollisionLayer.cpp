@@ -76,12 +76,24 @@ int CollisionLayer::GetColliderId(int direction, int localX, int localY) {
     }
 }
 
+void CollisionLayer::AddCollider(int direction, int localX, int localY) {
+    (*bV_colliders)[GetColliderId(direction, localX, localY)] = true;
+}
+
+void CollisionLayer::DeleteCollider(int direction, int localX, int localY) {
+    (*bV_colliders)[GetColliderId(direction, localX, localY)] = false;
+}
+
+void CollisionLayer::RestoreCollider(int direction, int localX, int localY) {
+    int colliderId = GetColliderId(direction, localX, localY);
+    (*bV_colliders)[colliderId] = (*bV_colliders_template)[colliderId];
+}
 
 bool CollisionLayer::DetectCollision(int direction, int localX, int localY) {
     return (*bV_colliders)[GetColliderId(direction, localX, localY)];
 }
 
-std::deque<std::pair<int, int>> CollisionLayer::findWay(int startX, int startY, int finishX, int finishY) {
+std::deque<std::pair<int, int>> CollisionLayer::FindWay(int startX, int startY, int finishX, int finishY) {
     std::vector<std::vector<Step *>> generations;
     std::vector<Step *> gen;
 
@@ -92,25 +104,17 @@ std::deque<std::pair<int, int>> CollisionLayer::findWay(int startX, int startY, 
     generations.push_back(gen);
 
     while (!generations.back().empty()) {
-        std::cout << "new cycle" << std::endl;
         std::vector<Step *> tempGen;
         for (auto i: generations.back()) {
             for (int j = 0; j < 4; j++) {
                 int newPosX = i->posX + Step::directionsX[j];
                 int newPosY = i->posY + Step::directionsY[j];
 
-                std::cout << "since the old position was: " << i->posX << "|" << i->posY
-                          << " and modif was: "
-                          << Step::directionsX[j] << "|" << Step::directionsY[j] << " new position is "
-                          << newPosX << "|" << newPosY
-                          << std::endl;
-
                 bool visitedByOtherStepThisGeneration = false;
                 for (auto j: tempGen) {
                     if (newPosX == j->posX && newPosY == j->posY)
                         visitedByOtherStepThisGeneration = true;
                 }
-                std::cout << "this gen checked" << std::endl;
 
                 bool visitedByOtherStepOtherGeneration = false;
                 for (auto j: generations) {
@@ -120,24 +124,17 @@ std::deque<std::pair<int, int>> CollisionLayer::findWay(int startX, int startY, 
                             visitedByOtherStepOtherGeneration = true;
                     }
                 }
-                std::cout << "other gen checked" << std::endl;
 
                 if (!DetectCollision(j, i->posX, i->posY) && !visitedByOtherStepOtherGeneration &&
                     !visitedByOtherStepThisGeneration) {
                     tempGen.push_back(new Step(newPosX, newPosY, i));
-                    std::cout << ">>>>>>>>>coord pushed " << tempGen.back()->posX << "|"
-                              << tempGen.back()->posY
-                              << std::endl;
+
                     if (tempGen.back()->posX == finishX && tempGen.back()->posY == finishY) {
                         correctPath = tempGen.back();
                         break;
                     }
                 }
                 if (correctPath != nullptr) break;
-            }
-            for (auto g: tempGen) {
-                std::cout << g->posX << " | ";
-                std::cout << g->posY << std::endl;
             }
         }
         generations.push_back(tempGen);
@@ -149,9 +146,6 @@ std::deque<std::pair<int, int>> CollisionLayer::findWay(int startX, int startY, 
         correctPath = correctPath->motherCell;
     }
 
-    for (auto i: res) {
-        std::cout << "X: " << i.first << " Y: " << i.second << std::endl;
-    }
     if(res.empty()) std::cout << "no way man!" << std::endl;
 
     for(auto g : generations) {
@@ -159,20 +153,50 @@ std::deque<std::pair<int, int>> CollisionLayer::findWay(int startX, int startY, 
             delete h;
         }
     }
-    generations.clear();
 
-    return res;}
+    generations.clear();
+    return res;
+}
 
 void CollisionLayer::Render() {
     for (int y = 0; y < Game::i_tilesY; ++y) {
         for (int x = 0; x < Game::i_tilesX; ++x) {
-            if((*bV_colliders)[GetColliderId(0, x, y)]) {
+            if ((*bV_colliders)[GetColliderId(0, x, y)]) {
                 sdlRect_dstRectHorizontal.y = y * Game::i_tileSize - (i_walliderTexY / 2);
                 sdlRect_dstRectHorizontal.x = x * Game::i_tileSize;
+                sdlRect_dstRectHorizontal.w = Game::i_tileSize;
                 TextureManager::DrawTexture(sdlTex_texture, sdlRect_srcRect, sdlRect_dstRectHorizontal);
             }
         }
     }
+    for (int x = 0; x < Game::i_tilesX; ++x) {
+        for (int y = 0; y < Game::i_tilesY; ++y) {
+            if ((*bV_colliders)[GetColliderId(3, x, y)]) {
+                sdlRect_dstRectVertical.y = y * Game::i_tileSize;
+                sdlRect_dstRectVertical.x = x * Game::i_tileSize - (i_walliderTexY / 2);
+                sdlRect_dstRectVertical.h = Game::i_tileSize;
+                TextureManager::DrawTexture(sdlTex_texture, sdlRect_srcRect, sdlRect_dstRectVertical);
+            }
+        }
+    }
+    for (int x = 0; x < Game::i_tilesX; ++x) {
+        if ((*bV_colliders)[GetColliderId(2, x, Game::i_tilesY - 1)]) {
+            sdlRect_dstRectHorizontal.y = Game::i_tilesY * Game::i_tileSize - (i_walliderTexY / 2);
+            sdlRect_dstRectHorizontal.x = x * Game::i_tileSize;
+            sdlRect_dstRectHorizontal.w = Game::i_tileSize;
+            TextureManager::DrawTexture(sdlTex_texture, sdlRect_srcRect, sdlRect_dstRectHorizontal);
+        }
+    }
+    for (int y = 0; y < Game::i_tilesY; ++y) {
+        if ((*bV_colliders)[GetColliderId(1, Game::i_tilesX-1, y)]) {
+            sdlRect_dstRectVertical.y = y * Game::i_tileSize;
+            sdlRect_dstRectVertical.x = Game::i_tilesX * Game::i_tileSize - (i_walliderTexY / 2);
+            sdlRect_dstRectVertical.h = Game::i_tileSize;
+            TextureManager::DrawTexture(sdlTex_texture, sdlRect_srcRect, sdlRect_dstRectVertical);
+        }
+    }
 }
+
+
 
 

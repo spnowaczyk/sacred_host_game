@@ -20,12 +20,58 @@ ObjectManager::~ObjectManager() {
     delete cl_layer;
 }
 
+void ObjectManager::SetCollidersOccupied(int localX, int localY) {
+    for (int i = 0; i < 4; ++i) {
+        cl_layer->AddCollider(i, localX, localY);
+    }
+}
+
+void ObjectManager::FixSharedColliders(int localX, int localY) {
+    for (int i = 0; i < 4; ++i) {
+        GameObject* go_adjacent;
+        switch (i) {
+            case 0:
+                go_adjacent = GetObjectByLocals(localX, localY - 1);
+                if(go_adjacent) {
+                    cl_layer->AddCollider(i, localX, localY);
+                }
+                break;
+            case 1:
+                go_adjacent = GetObjectByLocals(localX + 1, localY);
+                if(go_adjacent) {
+                    cl_layer->AddCollider(i, localX, localY);
+                }
+                break;
+            case 2:
+                go_adjacent = GetObjectByLocals(localX, localY + 1);
+                if(go_adjacent) {
+                    cl_layer->AddCollider(i, localX, localY);
+                }
+                break;
+            case 3:
+                go_adjacent = GetObjectByLocals(localX - 1, localY);
+                if(go_adjacent) {
+                    cl_layer->AddCollider(i, localX, localY);
+                }
+                break;
+
+        }
+    }
+}
+
+void ObjectManager::SetCollidersUnoccupied(int localX, int localY) {
+    for (int i = 0; i < 4; ++i) {
+        cl_layer->RestoreCollider(i, localX, localY);
+    }
+    std::cout << localX << "+++" << localY << std::endl;
+}
+
 GameObject* ObjectManager::CreateCharacter(std::string name, const char *textureSheet, int width, int height, int xTile,
                                            int yTile) {
     GameObject* object = new CharacterGO(name, textureSheet, width, height, xTile, yTile, this, sfxMan_manager);
     goA_gameObjectsByLocals[yTile][xTile] = object;
     goV_gameObjectsGeneral.push_back(object);
-    //here add collider
+    SetCollidersOccupied(xTile, yTile);
     return object;
 }
 
@@ -33,7 +79,7 @@ GameObject * ObjectManager::CreateObject(std::string name, const char *textureSh
     GameObject* object = new GameObject(name, textureSheet, width, height, xTile, yTile, this, sfxMan_manager, message);
     goA_gameObjectsByLocals[yTile][xTile] = object;
     goV_gameObjectsGeneral.push_back(object);
-    //here add collider
+    SetCollidersOccupied(xTile, yTile);
     return object;
 }
 
@@ -41,10 +87,12 @@ void ObjectManager::ChangeObjectLocals(int oldLocalX, int oldLocalY, int newLoca
     GameObject* object = goA_gameObjectsByLocals[oldLocalY][oldLocalX];
     goA_gameObjectsByLocals[oldLocalY][oldLocalX] = nullptr;
     goA_gameObjectsByLocals[newLocalY][newLocalX] = object;
-    //here change collider
+    SetCollidersOccupied(newLocalX, newLocalY);
+    SetCollidersUnoccupied(oldLocalX, oldLocalY);
+    FixSharedColliders(oldLocalX, oldLocalY);
 }
 
-GameObject *ObjectManager::getObjectByLocals(int localX, int localY) {
+GameObject *ObjectManager::GetObjectByLocals(int localX, int localY) {
     if(localX < Game::i_tilesX && localY < Game::i_tilesY) return goA_gameObjectsByLocals[localY][localX]; // CHANGE THIS SHIT
     else return nullptr;                                                           // THIS IS FUCKING IMMORAL
 }
@@ -58,7 +106,7 @@ void ObjectManager::DestroyObject(GameObject *object) {
     if(goA_gameObjectsByLocals[object->getIYTile()][object->getIXTile()] == object){
         goA_gameObjectsByLocals[object->getIYTile()][object->getIXTile()] = nullptr;
     }
-    //here delete collider
+    SetCollidersUnoccupied(object->getIXTile(), object->getIYTile());
     object->MarkToDeath();
 }
 
@@ -82,5 +130,8 @@ void ObjectManager::Render() {
 void ObjectManager::Adjust(int previousTileSize) {
     for(auto i : goV_gameObjectsGeneral) i->Adjust(previousTileSize);
 }
+
+
+
 
 

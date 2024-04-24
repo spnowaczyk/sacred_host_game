@@ -18,11 +18,14 @@ public:
     ~CollisionLayer();
 
     void LoadColliders(std::string path);
-
     int GetColliderId(int direction, int localX, int localY);
 
+    void AddCollider(int direction, int localX, int localY);
+    void DeleteCollider(int direction, int localX, int localY);
+    void RestoreCollider(int direction, int localX, int localY);
+
     bool DetectCollision(int direction, int localX, int localY);
-    std::deque<std::pair<int, int>> findWay(int startX, int startY, int finishX, int finishY);
+    std::deque<std::pair<int, int>> FindWay(int startX, int startY, int finishX, int finishY);
 
     void Render();
 
@@ -38,8 +41,8 @@ private:
     int i_width;
     int i_height;
 
-    int i_walliderTexX = 4;
-    int i_walliderTexY = 4;
+    int i_walliderTexX = 8;
+    int i_walliderTexY = 8;
 };
 
 

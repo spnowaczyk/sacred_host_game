@@ -19,7 +19,7 @@ CharacterGO::~CharacterGO() {
 
 void CharacterGO::Update() {
     SelectDestination();
-    MakeStep(2);
+    if(b_inMotion)MakeStep(2);
     TextManager::WriteMessage(textBox_position, "X: " + std::to_string(i_xTile) + " / Y: " + std::to_string(i_yTile));
 }
 
@@ -29,20 +29,25 @@ void CharacterGO::Move(int tileX, int tileY) {
 }
 
 void CharacterGO::SelectDestination() {
-    if(Game::b_selectButton == true) {
-        int cursorTileX = Game::i_cursorCoordinatesX/Game::i_tileSize;
-        int cursorTileY = Game::i_cursorCoordinatesY/Game::i_tileSize;
-        if(objMan_manager->getObjectByLocals(cursorTileX, cursorTileY) == nullptr) {
+    int cursorTileX = Game::i_cursorCoordinatesX/Game::i_tileSize;
+    int cursorTileY = Game::i_cursorCoordinatesY/Game::i_tileSize;
+    if(Game::sdlEvent_event.type == SDL_MOUSEBUTTONUP && Game::sdlEvent_event.button.button == SDL_BUTTON_LEFT) {
+        if(objMan_manager->GetObjectByLocals(cursorTileX, cursorTileY) == nullptr) {
             Diip_WalkPath.clear();
-            Diip_WalkPath = this->objMan_manager->cl_layer->findWay(i_desXTile, i_desYTile, cursorTileX, cursorTileY);
-            sfxMan_manager->DrawPinpoint();
+            this->objMan_manager->SetCollidersUnoccupied(i_xTile, i_yTile);
+            this->objMan_manager->FixSharedColliders(i_xTile, i_yTile);
+            Diip_WalkPath = this->objMan_manager->cl_layer->FindWay(i_desXTile, i_desYTile, cursorTileX, cursorTileY);
+            this->objMan_manager->SetCollidersOccupied(i_xTile, i_yTile);
+            if(!Diip_WalkPath.empty()) sfxMan_manager->DrawPinpoint();
+            b_inMotion = true;
         } else if (abs(cursorTileX - getIXTile()) <= 1 && abs(cursorTileY - getIYTile()) <= 1){
-            objMan_manager->getObjectByLocals(cursorTileX, cursorTileY)->Interact();
+            objMan_manager->GetObjectByLocals(cursorTileX, cursorTileY)->Interact();
         }
     }
 }
 
 void CharacterGO::MakeStep(int speed) {
+    std::cout << "im doing shit" << std::endl;
     int i_velocity = ((float)speed / 4) * ((float)Game::i_tileSize / 8);
     if(sdlRect_dstRect.x < i_desXTile * Game::i_tileSize) sdlRect_dstRect.x += i_velocity;
     else if(sdlRect_dstRect.x > i_desXTile * Game::i_tileSize) sdlRect_dstRect.x -= i_velocity;
@@ -62,11 +67,16 @@ void CharacterGO::MakeStep(int speed) {
         i_yTile = sdlRect_dstRect.y / Game::i_tileSize;
         i_xTile = sdlRect_dstRect.x / Game::i_tileSize;
 
-        objMan_manager->ChangeObjectLocals(i_prevXTile, i_prevYTile, i_xTile, i_yTile);
+        if(i_prevXTile != i_xTile || i_prevYTile != i_yTile) {
+            objMan_manager->ChangeObjectLocals(i_prevXTile, i_prevYTile, i_xTile, i_yTile);
+            std::cout << i_xTile << "|" << i_yTile << std::endl;
+        }
 
         if(!Diip_WalkPath.empty()) {
             Move(Diip_WalkPath.front().first, Diip_WalkPath.front().second);
             Diip_WalkPath.pop_front();
+        } else {
+            b_inMotion = false;
         }
     }
 }
